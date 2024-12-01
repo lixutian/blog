@@ -1,0 +1,2042 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="aurora blog 后端需求-下, 技术 博客 软件">
+    <meta name="description" content="1. 用户信息模块
+Controller: UserInfoController
+Service: 
+UserInfoService &amp;lt;= UserInfoServiceImpl
+TokenService &amp;lt;= TokenSer">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>aurora blog 后端需求-下 | 小柴博客</title>
+    <link rel="icon" type="image/png" href="/blog/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/blog/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/blog/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/blog/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/blog/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/blog/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/blog/css/my.css">
+<link rel="stylesheet" type="text/css" href="/blog/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/blog/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/blog/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/blog/css/reward.css">
+    
+
+
+
+    <script src="/blog/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/blog/atom.xml" title="小柴博客" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/blog/" class="waves-effect waves-light">
+                    
+                    <img src="/blog/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">小柴博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/blog/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/blog/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">小柴博客</div>
+        <div class="logo-desc">
+            
+            记录个人的学习笔记和随笔
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/blog/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/blog/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/blog/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">aurora blog 后端需求-下</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/blog/tags/Aurora-Blog/">
+                                <span class="chip bg-color">Aurora Blog</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/blog/categories/%E6%89%93%E9%BB%91%E5%B7%A5/" class="post-category">
+                                打黑工
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-11-30
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/blog/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="1-用户信息模块"><a href="#1-用户信息模块" class="headerlink" title="1. 用户信息模块"></a>1. 用户信息模块</h2><ul>
+<li>Controller: <code>UserInfoController</code></li>
+<li>Service: <ul>
+<li><code>UserInfoService</code> &lt;= <code>UserInfoServiceImpl</code></li>
+<li><code>TokenService</code> &lt;= <code>TokenServiceImpl</code></li>
+<li><code>RedisService</code> &lt;= <code>RedisServiceImpl</code></li>
+<li><code>UserRoleService</code> &lt;= <code>UserRoleServiceImpl</code></li>
+</ul>
+</li>
+<li>Mapper:<ul>
+<li><code>UserInfoMapper</code></li>
+<li><code>UserAuthMapper</code></li>
+</ul>
+</li>
+</ul>
+<p>用户信息模块负责管理用户的基本信息、头像、邮箱绑定、订阅状态、角色、禁用状态等功能。管理员可以管理在线用户、修改用户角色及禁用状态，普通用户则可以修改个人信息、头像、邮箱等。使用 MyBatis-Plus 进行数据持久化，使用 Redis 进行缓存管理。</p>
+<h3 id="1-1-更新用户信息"><a href="#1-1-更新用户信息" class="headerlink" title="1.1 更新用户信息"></a>1.1 更新用户信息</h3><ul>
+<li><strong>功能描述</strong>：用户可以更新其个人信息（昵称、个人介绍、网站）</li>
+<li><strong>请求路径</strong>：<code>PUT /users/info</code></li>
+<li><strong>请求参数</strong>：<ul>
+<li><code>UserInfoVO</code>（请求体，昵称、个人介绍、网站）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong>：<code>ResultVO</code></li>
+<li><strong>实现函数</strong>：<ul>
+<li><code>UserInfoController.updateUserInfo</code></li>
+<li><code>UserInfoService.updateUserInfo</code> &lt;= <code>UserInfoServiceImpl.updateUserInfo</code></li>
+<li><code>UserInfoMapper.updateById</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-更新用户头像"><a href="#1-2-更新用户头像" class="headerlink" title="1.2 更新用户头像"></a>1.2 更新用户头像</h3><ul>
+<li><strong>功能描述</strong> : 用户可以上传新的头像</li>
+<li><strong>请求路径</strong> : <code>POST /users/avatar</code></li>
+<li><strong>请求参数</strong> : <ul>
+<li><code>MultipartFile file</code>（上传的头像文件）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> : <code>ResultVO&lt;String&gt;</code>（上传后的头像路径）</li>
+<li><strong>实现函数</strong>：<ul>
+<li><code>UserInfoController.updateUserAvatar</code></li>
+<li><code>UserInfoService.updateUserAvatar</code>&lt;= <code>UserInfoServiceImpl.updateUserAvatar</code></li>
+<li><code>UserInfoMapper.updateById</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-3-绑定用户邮箱"><a href="#1-3-绑定用户邮箱" class="headerlink" title="1.3 绑定用户邮箱"></a>1.3 绑定用户邮箱</h3><ul>
+<li><strong>功能描述</strong> : 用户可以绑定或更新其邮箱地址，通过验证码进行验证。</li>
+<li><strong>请求路径</strong> : <code>PUT /users/email</code></li>
+<li><strong>请求参数</strong> : <ul>
+<li><code>EmailVO</code>（请求体，邮箱、验证码）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> : <code>ResultVO</code></li>
+<li><strong>实现函数</strong>：<ul>
+<li><code>UserInfoController.saveUserEmail</code></li>
+<li><code>UserInfoService.saveUserEmail</code>&lt;= <code>UserInfoServiceImpl.saveUserEmail</code></li>
+<li><code>UserInfoMapper.updateById</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4-修改用户的订阅状态"><a href="#1-4-修改用户的订阅状态" class="headerlink" title="1.4 修改用户的订阅状态"></a>1.4 修改用户的订阅状态</h3><ul>
+<li><strong>功能描述</strong> : 用户可以修改其订阅状态。</li>
+<li><strong>请求路径</strong> : <code>PUT /users/subscribe</code></li>
+<li><strong>请求参数</strong> : <ul>
+<li><code>SubscribeVO</code>（请求体，用户ID、订阅状态）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> : <code>ResultVO</code></li>
+<li><strong>实现函数</strong>：<ul>
+<li><code>UserInfoController.updateUserSubscribe</code></li>
+<li><code>UserInfoService.updateUserSubscribe</code>&lt;= <code>UserInfoServiceImpl.updateUserSubscribe</code></li>
+<li><code>UserInfoMapper.updateById</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-5-修改用户角色"><a href="#1-5-修改用户角色" class="headerlink" title="1.5 修改用户角色"></a>1.5 修改用户角色</h3><ul>
+<li><strong>功能描述</strong> : 管理员可以修改用户角色。</li>
+<li><strong>请求路径</strong> : <code>PUT /admin/users/role</code></li>
+<li><strong>请求参数</strong> : <ul>
+<li><code>UserRoleVO</code>（请求体，用户ID，昵称，角色ID列表）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> : <code>ResultVO</code></li>
+<li><strong>实现函数</strong>：<ul>
+<li><code>UserInfoController.updateUserRole</code></li>
+<li><code>UserInfoService.updateUserRole</code>&lt;= <code>UserInfoServiceImpl.updateUserRole</code></li>
+<li><code>UserInfoMapper.updateById</code></li>
+<li><code>UserRoleServiceImpl.remove</code></li>
+<li><code>UserRoleServiceImpl.saveBatch</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-6-修改用户禁用状态"><a href="#1-6-修改用户禁用状态" class="headerlink" title="1.6 修改用户禁用状态"></a>1.6 修改用户禁用状态</h3><ul>
+<li><strong>功能描述</strong> : 管理员可以禁用或启用用户。</li>
+<li><strong>请求路径</strong> : <code>PUT /admin/users/disable</code></li>
+<li><strong>请求参数</strong> : <ul>
+<li><code>UserDisableVO</code>（请求体，用户ID，禁用状态）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> : <code>ResultVO</code></li>
+<li><strong>实现函数</strong>：<ul>
+<li><code>UserInfoController.updateUserDisable</code></li>
+<li><code>UserInfoService.updateUserDisable</code>&lt;= <code>UserInfoServiceImpl.updateUserDisable</code></li>
+<li><code>UserInfoService.removeOnlineUser</code> &lt;= <code>UserInfoServiceImpl.removeOnlineUser</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-7-查看在线用户"><a href="#1-7-查看在线用户" class="headerlink" title="1.7 查看在线用户"></a>1.7 查看在线用户</h3><ul>
+<li><strong>功能描述</strong> : 管理员可以查看当前在线用户列表。</li>
+<li><strong>请求路径</strong> : <code>GET /admin/users/online</code></li>
+<li><strong>请求参数</strong> : <ul>
+<li><code>ConditionVO</code>（请求体，一些筛选条件）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> : <code>ResultVO&lt;PageResultDTO&lt;UserOnlineDTO&gt;&gt;</code>（分页返回在线用户列表）</li>
+<li><strong>实现函数</strong>：<ul>
+<li><code>UserInfoController.listOnlineUsers</code></li>
+<li><code>UserInfoService.listOnlineUsers</code>&lt;= <code>UserInfoServiceImpl.listOnlineUsers</code></li>
+<li><code>RedisService.hGetAll</code> &lt;= <code>RedisServiceImpl.hGetAll</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-8-下线用户"><a href="#1-8-下线用户" class="headerlink" title="1.8 下线用户"></a>1.8 下线用户</h3><ul>
+<li><strong>功能描述</strong> : 管理员可以将指定用户下线。</li>
+<li><strong>请求路径</strong> : <code>DELETE /admin/users/{userInfoId}/online</code></li>
+<li><strong>请求参数</strong> : <ul>
+<li><code>userInfoId</code>（URL路径参数Integer，用户ID）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> : <code>ResultVO</code></li>
+<li><strong>实现函数</strong>：<ul>
+<li><code>UserInfoController.removeOnlineUser</code></li>
+<li><code>UserInfoService.removeOnlineUser</code>&lt;= <code>UserInfoServiceImpl.removeOnlineUser</code></li>
+<li><code>userAuthMapper.selectOne</code></li>
+<li><code>TokenService.delLoginUser</code> &lt;= <code>TokenServiceImpl.delLoginUser</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="1-9-根据id获取用户信息"><a href="#1-9-根据id获取用户信息" class="headerlink" title="1.9 根据id获取用户信息"></a>1.9 根据id获取用户信息</h3><ul>
+<li><strong>功能描述</strong> : 获取指定用户的详细信息。</li>
+<li><strong>请求路径</strong> : <code>GET /users/info/{userInfoId}</code></li>
+<li><strong>请求参数</strong> : <ul>
+<li><code>userInfoId</code>（URL路径参数Integer，用户ID）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> : <code>ResultVO&lt;UserInfoDTO&gt;</code></li>
+<li><strong>实现函数</strong>：<ul>
+<li><code>UserInfoController.getUserInfoById</code></li>
+<li><code>UserInfoService.getUserInfoById</code>&lt;= <code>UserInfoServiceImpl.getUserInfoById</code></li>
+<li><code>UserInfoMapper.selectById</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong><em><u>以下内容包含AI辅助创作</u>，但已经进行了大量人工检验和修改</em>   : -)</strong></p>
+<h2 id="2-用户账号模块"><a href="#2-用户账号模块" class="headerlink" title="2. 用户账号模块"></a>2. 用户账号模块</h2><ul>
+<li>Controller: <code>UserAuthController</code></li>
+<li>Service: <ul>
+<li><code>UserAuthService</code> &lt;= <code>UserAuthServiceImpl</code></li>
+<li><code>RedisService</code> &lt;= <code>RedisServiceImpl</code></li>
+<li><code>AuroraInfoService</code> &lt;= <code>AuroraInfoServiceImpl</code></li>
+<li><code>TokenService</code> &lt;= <code>TokenServiceImpl</code></li>
+<li><code>SocialLoginStrategyContext</code></li>
+</ul>
+</li>
+<li>Mapper: <ul>
+<li><code>UserAuthMapper</code></li>
+<li><code>UserInfoMapper</code></li>
+<li><code>UserRoleMapper</code></li>
+</ul>
+</li>
+</ul>
+<p>用户账号模块负责用户的注册、登录、修改密码、邮箱验证码等功能，并提供管理员功能，包括查询用户信息、修改管理员密码、获取用户区域分布等。使用 MyBatis-Plus 进行数据持久化，使用 Redis 进行缓存管理，RabbitMQ 用于邮件发送。</p>
+<h3 id="2-1-发送邮箱验证码"><a href="#2-1-发送邮箱验证码" class="headerlink" title="2.1 发送邮箱验证码"></a>2.1 发送邮箱验证码</h3><ul>
+<li><strong>功能描述</strong> ：用户可以请求发送邮箱验证码，用于注册、修改密码等操作。</li>
+<li><strong>请求路径</strong> ：<code>GET /users/code</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>username</code>（参数String）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;?&gt;</code>（操作结果）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>UserAuthController.sendCode</code></li>
+<li><code>UserAuthService.sendCode</code> &lt;= <code>UserAuthServiceImpl.sendCode</code></li>
+<li><code>RedisService.set</code> &lt;= <code>RedisServiceImpl.set</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-获取用户区域分布"><a href="#2-2-获取用户区域分布" class="headerlink" title="2.2 获取用户区域分布"></a>2.2 获取用户区域分布</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以查询用户的区域分布。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/users/area</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>ConditionVO</code>（请求体，包含查询条件，如区域类型等）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;List&lt;UserAreaDTO&gt;&gt;</code>（用户区域信息列表）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>UserAuthController.listUserAreas</code></li>
+<li><code>UserAuthService.listUserAreas</code> &lt;= <code>UserAuthServiceImpl.listUserAreas</code></li>
+<li><code>RedisService.get</code> &lt;= <code>RedisServiceImpl.get</code></li>
+<li><code>RedisService.hGetAll</code> &lt;= <code>RedisServiceImpl.hGetAll</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3-查询后台用户列表"><a href="#2-3-查询后台用户列表" class="headerlink" title="2.3 查询后台用户列表"></a>2.3 查询后台用户列表</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以查询后台的用户列表，支持分页和筛选条件。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/users</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>ConditionVO</code>（请求体，包含分页信息和筛选条件）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;PageResultDTO&lt;UserAdminDTO&gt;&gt;</code>（用户列表分页数据）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>UserAuthController.listUsers</code></li>
+<li><code>UserAuthService.listUsers</code> &lt;= <code>UserAuthServiceImpl.listUsers</code></li>
+<li><code>UserAuthMapper.countUser</code></li>
+<li><code>UserAuthMapper.listUsers</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-4-用户注册"><a href="#2-4-用户注册" class="headerlink" title="2.4 用户注册"></a>2.4 用户注册</h3><ul>
+<li><strong>功能描述</strong> ：用户通过邮箱和验证码进行注册。</li>
+<li><strong>请求路径</strong> ：<code>POST /users/register</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>UserVO</code>（请求体，包含邮箱、密码等信息）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;?&gt;</code>（操作结果）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>UserAuthController.register</code></li>
+<li><code>UserAuthService.register</code> &lt;= <code>UserAuthServiceImpl.register</code></li>
+<li><code>AuroraInfoService.getWebsiteConfig().getUserAvatar()</code> &lt;= <code>AuroraInfoServiceImpl.getWebsiteConfig()</code></li>
+<li><code>UserInfoMapper.insert</code></li>
+<li><code>UserRoleMapper.insert</code></li>
+<li><code>UserAuthMapper.insert</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-5-修改密码"><a href="#2-5-修改密码" class="headerlink" title="2.5 修改密码"></a>2.5 修改密码</h3><ul>
+<li><strong>功能描述</strong> ：用户可以修改自己的密码。</li>
+<li><strong>请求路径</strong> ：<code>PUT /users/password</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>UserVO</code>（请求体，包含邮箱和新密码）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;?&gt;</code>（操作结果）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>UserAuthController.updatePassword</code></li>
+<li><code>UserAuthService.updatePassword</code> &lt;= <code>UserAuthServiceImpl.updatePassword</code></li>
+<li><code>UserAuthMapper.update</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-6-修改管理员密码"><a href="#2-6-修改管理员密码" class="headerlink" title="2.6 修改管理员密码"></a>2.6 修改管理员密码</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以修改自己的登录密码。</li>
+<li><strong>请求路径</strong> ：<code>PUT /admin/users/password</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>PasswordVO</code>（请求体，包含旧密码和新密码）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;?&gt;</code>（操作结果）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>UserAuthController.updateAdminPassword</code></li>
+<li><code>UserAuthService.updateAdminPassword</code> &lt;= <code>UserAuthServiceImpl.updateAdminPassword</code></li>
+<li><code>UserAuthMapper.updateById</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-7-用户登出"><a href="#2-7-用户登出" class="headerlink" title="2.7 用户登出"></a>2.7 用户登出</h3><ul>
+<li><strong>功能描述</strong> ：用户登出并清除登录状态。</li>
+<li><strong>请求路径</strong> ：<code>POST /users/logout</code></li>
+<li><strong>请求参数</strong> ：无</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;UserLogoutStatusDTO&gt;</code>（登出状态）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>UserAuthController.logout</code></li>
+<li><code>UserAuthService.logout</code> &lt;= <code>UserAuthServiceImpl.logout</code></li>
+<li><code>TokenService.delLoginUser</code> &lt;= <code>TokenServiceImpl.delLoginUser</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-8-QQ-登录"><a href="#2-8-QQ-登录" class="headerlink" title="2.8 QQ 登录"></a>2.8 QQ 登录</h3><ul>
+<li><strong>功能描述</strong> ：用户通过 QQ 账号进行登录。</li>
+<li><strong>请求路径</strong> ：<code>POST /users/oauth/qq</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>QQLoginVO</code>（请求体，包含 QQ 登录相关信息）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;UserInfoDTO&gt;</code>（用户信息）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>UserAuthController.qqLogin</code></li>
+<li><code>UserAuthService.qqLogin</code> &lt;= <code>UserAuthServiceImpl.qqLogin</code></li>
+<li><code>SocialLoginStrategyContext.executeLoginStrategy</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="3-说说模块"><a href="#3-说说模块" class="headerlink" title="3. 说说模块"></a>3. 说说模块</h2><ul>
+<li>Controller: <code>TalkController</code></li>
+<li>Service: <ul>
+<li><code>TalkService</code> &lt;= <code>TalkServiceImpl</code></li>
+<li><code>UploadStrategyContext</code></li>
+</ul>
+</li>
+<li>Mapper: <ul>
+<li><code>TalkMapper</code></li>
+<li><code>CommentMapper</code></li>
+</ul>
+</li>
+</ul>
+<p>说说模块用于处理用户发布、查看、修改、删除说说的功能，包括前台的说说列表和后台管理功能。同时支持图片上传，并集成了评论计数功能。</p>
+<h3 id="3-1-查看说说列表"><a href="#3-1-查看说说列表" class="headerlink" title="3.1 查看说说列表"></a>3.1 查看说说列表</h3><ul>
+<li><strong>功能描述</strong> ：获取所有公开的说说列表。</li>
+<li><strong>请求路径</strong> ：<code>GET /talks</code></li>
+<li><strong>请求参数</strong> ：无</li>
+<li><strong>返回结果</strong> ： <code>ResultVO&lt;PageResultDTO&lt;TalkDTO&gt;&gt;</code>（分页返回说说列表，包含说说详细信息）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TalkController.listTalks</code></li>
+<li><code>TalkService.listTalks</code> &lt;= <code>TalkServiceImpl.listTalks</code></li>
+<li><code>TalkMapper.selectCount</code></li>
+<li><code>TalkMapper.listTalks</code></li>
+<li><code>CommentMapper.listCommentCountByTypeAndTopicIds</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-根据id查看说说"><a href="#3-2-根据id查看说说" class="headerlink" title="3.2 根据id查看说说"></a>3.2 根据id查看说说</h3><ul>
+<li><strong>功能描述</strong> ：根据说说 ID 获取说说详细内容。</li>
+<li><strong>请求路径</strong> ：<code>GET /talks/{talkId}</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>talkId</code>（URL路径参数Integer，说说 ID）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ： <code>ResultVO&lt;TalkDTO&gt;</code>（包含说说的详细信息）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TalkController.getTalkById</code></li>
+<li><code>TalkService.getTalkById</code> &lt;= <code>TalkServiceImpl.getTalkById</code></li>
+<li><code>TalkMapper.getTalkById</code></li>
+<li><code>CommentMapper.listCommentCountByTypeAndTopicId</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-上传说说图片"><a href="#3-3-上传说说图片" class="headerlink" title="3.3 上传说说图片"></a>3.3 上传说说图片</h3><ul>
+<li><strong>功能描述</strong> ：上传说说的图片。</li>
+<li><strong>请求路径</strong> ：<code>POST /admin/talks/images</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>MultipartFile file</code>（上传的图片文件）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;String&gt;</code>（图片上传后的文件路径）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TalkController.saveTalkImages</code></li>
+<li><code>UploadStrategyContext.executeUploadStrategy</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-4-保存或修改说说"><a href="#3-4-保存或修改说说" class="headerlink" title="3.4 保存或修改说说"></a>3.4 保存或修改说说</h3><ul>
+<li><strong>功能描述</strong> ：保存或修改说说内容。</li>
+<li><strong>请求路径</strong> ：<code>POST /admin/talks</code></li>
+<li><strong>请求参数</strong> ：<ul>
+<li><code>TalkVO</code> （请求体，包含说说的相关信息）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ：<ul>
+<li><code>TalkController.saveOrUpdateTalk</code></li>
+<li><code>TalkService.saveOrUpdateTalk</code> &lt;= <code>TalkServiceImpl.saveOrUpdateTalk</code></li>
+<li><code>TalkService.saveOrUpdate</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-5-删除说说"><a href="#3-5-删除说说" class="headerlink" title="3.5 删除说说"></a>3.5 删除说说</h3><ul>
+<li><strong>功能描述</strong> ：删除指定的说说。</li>
+<li><strong>请求路径</strong> ：<code>DELETE /admin/talks</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>talkIds</code>：要删除的说说 ID 列表，类型为 <code>List&lt;Integer&gt;</code></li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TalkController.deleteTalks</code></li>
+<li><code>TalkService.deleteTalks</code> &lt;= <code>TalkServiceImpl.deleteTalks</code></li>
+<li><code>TalkMapper.deleteBatchIds</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-6-查看后台说说"><a href="#3-6-查看后台说说" class="headerlink" title="3.6 查看后台说说"></a>3.6 查看后台说说</h3><ul>
+<li><strong>功能描述</strong> ：后台管理员查看说说列表，支持按条件筛选。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/talks</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>ConditionVO</code>（请求体，包含筛选条件）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;PageResultDTO&lt;TalkAdminDTO&gt;&gt;</code>（包含后台说说列表和分页信息）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TalkController.listBackTalks</code></li>
+<li><code>TalkService.listBackTalks</code> &lt;= <code>TalkServiceImpl.listBackTalks</code></li>
+<li><code>TalkMapper.selectCount</code></li>
+<li><code>TalkMapper.listTalksAdmin</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-7-根据id查看后台说说"><a href="#3-7-根据id查看后台说说" class="headerlink" title="3.7 根据id查看后台说说"></a>3.7 根据id查看后台说说</h3><ul>
+<li><strong>功能描述</strong> ：后台管理员根据说说 ID 获取说说详细信息。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/talks/{talkId}</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>talkId</code>（URL路径参数Integer，说说 ID）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ： <code>ResultVO&lt;TalkAdminDTO&gt;</code>（包含后台管理说说的详细信息）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TalkController.getBackTalkById</code></li>
+<li><code>TalkService.getBackTalkById</code> &lt;= <code>TalkServiceImpl.getBackTalkById</code></li>
+<li><code>TalkMapper.getTalkByIdAdmin</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="4-标签模块"><a href="#4-标签模块" class="headerlink" title="4. 标签模块"></a>4. 标签模块</h2><ul>
+<li>Controller: <code>TagController</code></li>
+<li>Service: <ul>
+<li><code>TagService</code> &lt;= <code>TagServiceImpl</code></li>
+</ul>
+</li>
+<li>Mapper: <ul>
+<li><code>TagMapper</code></li>
+<li><code>ArticleTagMapper</code></li>
+</ul>
+</li>
+</ul>
+<p>标签模块用于处理标签的增删查改（CRUD）操作，包括前台获取标签列表、后台标签管理和标签的搜索、添加、修改、删除功能。</p>
+<h3 id="4-1-获取所有标签"><a href="#4-1-获取所有标签" class="headerlink" title="4.1 获取所有标签"></a>4.1 获取所有标签</h3><ul>
+<li><strong>功能描述</strong> ：获取所有标签。</li>
+<li><strong>请求路径</strong> ：<code>GET /tags/all</code></li>
+<li><strong>请求参数</strong> ：无</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;List&lt;TagDTO&gt;&gt;</code>，包含所有标签的列表。</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TagController.getAllTags</code></li>
+<li><code>TagService.listTags</code> &lt;= <code>TagServiceImpl.listTags</code></li>
+<li><code>TagMapper.listTags()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2-获取前十个标签"><a href="#4-2-获取前十个标签" class="headerlink" title="4.2 获取前十个标签"></a>4.2 获取前十个标签</h3><ul>
+<li><strong>功能描述</strong> ：获取前十个热门标签。</li>
+<li><strong>请求路径</strong> ：<code>GET /tags/topTen</code></li>
+<li><strong>请求参数</strong> ：无</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;List&lt;TagDTO&gt;&gt;</code>，包含前十个标签的列表。</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TagController.getTopTenTags</code></li>
+<li><code>TagService.listTopTenTags</code> &lt;= <code>TagServiceImpl.listTopTenTags</code></li>
+<li><code>TagMapper.listTopTenTags</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-3-查询后台标签列表"><a href="#4-3-查询后台标签列表" class="headerlink" title="4.3 查询后台标签列表"></a>4.3 查询后台标签列表</h3><ul>
+<li><strong>功能描述</strong> ：根据查询条件获取后台标签列表，支持分页。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/tags</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>conditionVO</code>：查询条件，类型为 <code>ConditionVO</code>，支持分页和关键词搜索。</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ： <code>ResultVO&lt;PageResultDTO&lt;TagAdminDTO&gt;&gt;</code>，包含标签列表和分页信息。</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TagController.listTagsAdmin</code></li>
+<li><code>TagService.listTagsAdmin</code> &lt;= <code>TagServiceImpl.listTagsAdmin</code></li>
+<li><code>TagMapper.selectCount</code></li>
+<li><code>TagMapper.listTagsAdmin</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-4-搜索文章标签"><a href="#4-4-搜索文章标签" class="headerlink" title="4.4 搜索文章标签"></a>4.4 搜索文章标签</h3><ul>
+<li><strong>功能描述</strong> ：根据关键词搜索后台标签。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/tags/search</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>conditionVO</code>：查询条件，类型为 <code>ConditionVO</code>，支持关键词搜索。</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ： <code>ResultVO&lt;List&lt;TagAdminDTO&gt;&gt;</code>，包含符合搜索条件的标签列表。</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TagController.listTagsAdminBySearch</code></li>
+<li><code>TagService.listTagsAdminBySearch</code> &lt;= <code>TagServiceImpl.listTagsAdminBySearch</code></li>
+<li><code>TagMapper.selectList</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-5-添加或修改标签"><a href="#4-5-添加或修改标签" class="headerlink" title="4.5 添加或修改标签"></a>4.5 添加或修改标签</h3><ul>
+<li><strong>功能描述</strong> ：添加或修改标签信息。</li>
+<li><strong>请求路径</strong> ：<code>POST /admin/tags</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>tagVO</code>：<code>TagVO</code> 对象，包含标签的相关信息。</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;?&gt;</code> </li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TagController.saveOrUpdateTag</code></li>
+<li><code>TagService.saveOrUpdateTag</code> &lt;= <code>TagServiceImpl.saveOrUpdateTag</code></li>
+<li><code>TagMapper.selectOne</code></li>
+<li><code>TagService.saveOrUpdate</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-6-删除标签"><a href="#4-6-删除标签" class="headerlink" title="4.6 删除标签"></a>4.6 删除标签</h3><ul>
+<li><strong>功能描述</strong> ：删除指定的标签。</li>
+<li><strong>请求路径</strong> ：<code>DELETE /admin/tags</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>tagIdList</code>：要删除的标签 ID 列表，类型为 <code>List&lt;Integer&gt;</code></li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;?&gt;</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>TagController.deleteTag</code></li>
+<li><code>TagService.deleteTag</code> &lt;= <code>TagServiceImpl.deleteTag</code></li>
+<li><code>ArticleTagMapper.selectCount</code></li>
+<li><code>TagMapper.deleteBatchIds</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="5-角色模块"><a href="#5-角色模块" class="headerlink" title="5. 角色模块"></a>5. 角色模块</h2><ul>
+<li>Controller: <code>RoleController</code></li>
+<li>Service: <ul>
+<li><code>RoleService</code> &lt;= <code>RoleServiceImpl</code></li>
+<li><code>RoleResourceService</code> &lt;= <code>RoleResourceServiceImpl</code></li>
+<li><code>RoleMenuService</code> &lt;= <code>RoleMenuServiceImpl</code></li>
+</ul>
+</li>
+<li>Mapper: <ul>
+<li><code>RoleMapper</code></li>
+<li><code>UserRoleMapper</code></li>
+<li><code>RoleMenuMapper</code></li>
+<li><code>RoleResourceMapper</code></li>
+</ul>
+</li>
+</ul>
+<p>角色模块负责管理系统中的角色信息，包括角色的增删查改（CRUD）操作，角色与用户、菜单、资源的关联管理。管理员可以通过该模块配置和管理用户的角色权限。</p>
+<h3 id="5-1-查询用户角色选项"><a href="#5-1-查询用户角色选项" class="headerlink" title="5.1 查询用户角色选项"></a>5.1 查询用户角色选项</h3><ul>
+<li><strong>功能描述</strong> ：查询系统中所有可分配的角色选项。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/users/role</code></li>
+<li><strong>请求参数</strong> ：无</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;List&lt;UserRoleDTO&gt;&gt;</code>，包含所有角色信息。</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>RoleController.listUserRoles</code></li>
+<li><code>RoleService.listUserRoles</code> &lt;= <code>RoleServiceImpl.listUserRoles</code></li>
+<li><code>RoleMapper.selectList</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="5-2-查询角色列表"><a href="#5-2-查询角色列表" class="headerlink" title="5.2 查询角色列表"></a>5.2 查询角色列表</h3><ul>
+<li><strong>功能描述</strong> ：根据查询条件获取角色列表，支持分页和关键词搜索。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/roles</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>conditionVO</code>：查询条件，类型为 <code>ConditionVO</code>，支持分页和关键词搜索。</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;PageResultDTO&lt;RoleDTO&gt;&gt;</code>，包含角色列表和分页信息。</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>RoleController.listRoles</code></li>
+<li><code>RoleService.listRoles</code> &lt;= <code>RoleServiceImpl.listRoles</code></li>
+<li><code>RoleMapper.selectCount</code></li>
+<li><code>RoleMapper.listRoles</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="5-3-保存或更新角色"><a href="#5-3-保存或更新角色" class="headerlink" title="5.3 保存或更新角色"></a>5.3 保存或更新角色</h3><ul>
+<li><strong>功能描述</strong> ：添加或更新角色信息。</li>
+<li><strong>请求路径</strong> ：<code>POST /admin/role</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>roleVO</code>：<code>RoleVO</code> 对象，包含角色的相关信息。</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;?&gt;</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>RoleController.saveOrUpdateRole</code></li>
+<li><code>RoleService.saveOrUpdateRole</code> &lt;= <code>RoleServiceImpl.saveOrUpdateRole</code></li>
+<li><code>RoleMapper.selectOne</code></li>
+<li><code>RoleResourceService.saveOrUpdate</code></li>
+<li><code>RoleResourceService.remove</code></li>
+<li><code>RoleResourceService.saveBatch</code></li>
+<li><code>RoleMenuService.remove</code></li>
+<li><code>RoleMenuService.saveBatch</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="5-4-删除角色"><a href="#5-4-删除角色" class="headerlink" title="5.4 删除角色"></a>5.4 删除角色</h3><ul>
+<li><strong>功能描述</strong> ：删除指定的角色。如果角色下存在用户，则不能删除。</li>
+<li><strong>请求路径</strong> ：<code>DELETE /admin/roles</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>roleIdList</code>：要删除的角色 ID 列表，类型为 <code>List&lt;Integer&gt;</code>。</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;?&gt;</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>RoleController.deleteRoles</code></li>
+<li><code>RoleService.deleteRoles</code> &lt;= <code>RoleServiceImpl.deleteRoles</code></li>
+<li><code>UserRoleMapper.selectCount</code></li>
+<li><code>RoleMapper.deleteBatchIds</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="6-资源模块"><a href="#6-资源模块" class="headerlink" title="6. 资源模块"></a>6. 资源模块</h2><ul>
+<li>Controller: <code>ResourceController</code></li>
+<li>Service: <ul>
+<li><code>ResourceService</code> &lt;= <code>ResourceServiceImpl</code></li>
+</ul>
+</li>
+<li>Mapper: <ul>
+<li><code>ResourceMapper</code></li>
+<li><code>RoleResourceMapper</code></li>
+</ul>
+</li>
+</ul>
+<p>资源模块负责管理系统中的资源，包括查看、新增、修改、删除资源，以及获取角色资源选项等功能。</p>
+<h3 id="6-1-查看资源列表"><a href="#6-1-查看资源列表" class="headerlink" title="6.1 查看资源列表"></a>6.1 查看资源列表</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以查看资源列表，根据条件过滤资源。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/resources</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>ConditionVO</code>（请求体，包含筛选条件，如关键词）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;List&lt;ResourceDTO&gt;&gt;</code>（资源列表）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>ResourceController.listResources</code></li>
+<li><code>ResourceService.listResources</code> &lt;= <code>ResourceServiceImpl.listResources</code></li>
+<li><code>ResourceMapper.selectList</code></li>
+<li><code>ResourceServiceImpl.listResourceChildren</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="6-2-删除资源"><a href="#6-2-删除资源" class="headerlink" title="6.2 删除资源"></a>6.2 删除资源</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以删除指定的资源，删除时需确保该资源下没有绑定角色。</li>
+<li><strong>请求路径</strong> ：<code>DELETE /admin/resources/{resourceId}</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>resourceId</code>（URL路径参数Integer，资源ID）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>ResourceController.deleteResource</code></li>
+<li><code>ResourceService.deleteResource</code> &lt;= <code>ResourceServiceImpl.deleteResource</code></li>
+<li><code>RoleResourceMapper.selectCount</code></li>
+<li><code>ResourceMapper.deleteBatchIds</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="6-3-新增或修改资源"><a href="#6-3-新增或修改资源" class="headerlink" title="6.3 新增或修改资源"></a>6.3 新增或修改资源</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以新增或修改资源信息。</li>
+<li><strong>请求路径</strong> ：<code>POST /admin/resources</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>ResourceVO</code>（请求体，包含资源名称、URL等信息）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>ResourceController.saveOrUpdateResource</code></li>
+<li><code>ResourceService.saveOrUpdateResource</code> &lt;= <code>ResourceServiceImpl.saveOrUpdateResource</code></li>
+<li><code>ResourceService.saveOrUpdate</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="6-4-查看角色资源选项"><a href="#6-4-查看角色资源选项" class="headerlink" title="6.4 查看角色资源选项"></a>6.4 查看角色资源选项</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以查看角色资源的选项，用于角色配置资源权限。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/role/resources</code></li>
+<li><strong>请求参数</strong> ：无</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;List&lt;LabelOptionDTO&gt;&gt;</code>（角色资源选项列表）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>ResourceController.listResourceOption</code></li>
+<li><code>ResourceService.listResourceOption</code> &lt;= <code>ResourceServiceImpl.listResourceOption</code></li>
+<li><code>ResourceMapper.selectList</code></li>
+<li><code>ResourceServiceImpl.listResourceChildren</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="7-照片模块"><a href="#7-照片模块" class="headerlink" title="7. 照片模块"></a>7. 照片模块</h2><ul>
+<li>Controller: <code>PhotoController</code></li>
+<li>Service: <ul>
+<li><code>PhotoService</code> &lt;= <code>PhotoServiceImpl</code></li>
+<li><code>PhotoAlbumService</code> &lt;= <code>PhotoAlbumServiceImpl</code></li>
+<li><code>UploadStrategyContext</code></li>
+</ul>
+</li>
+<li>Mapper: <ul>
+<li><code>PhotoMapper</code></li>
+<li><code>PhotoAlbumMapper</code></li>
+</ul>
+</li>
+</ul>
+<p>照片模块负责管理系统中的照片信息，包括上传、查看、删除和更新照片等功能。</p>
+<h3 id="7-1-上传照片"><a href="#7-1-上传照片" class="headerlink" title="7.1 上传照片"></a>7.1 上传照片</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以上传照片，照片将存储在指定路径。</li>
+<li><strong>请求路径</strong> ：<code>POST /admin/photos/upload</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>file</code>（<code>MultipartFile</code>，照片文件）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;String&gt;</code>（上传后的文件路径）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoController.savePhotoAlbumCover</code></li>
+<li><code>UploadStrategyContext.executeUploadStrategy</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="7-2-根据相册ID获取照片列表"><a href="#7-2-根据相册ID获取照片列表" class="headerlink" title="7.2 根据相册ID获取照片列表"></a>7.2 根据相册ID获取照片列表</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以根据相册ID获取该相册下的所有照片。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/photos</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>ConditionVO</code>（请求体，包含筛选条件）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;PageResultDTO&lt;PhotoAdminDTO&gt;&gt;</code>（分页后的照片列表）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoController.listPhotos</code></li>
+<li><code>PhotoService.listPhotos</code> &lt;= <code>PhotoServiceImpl.listPhotos</code></li>
+<li><code>PhotoMapper.selectPage</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="7-3-更新照片信息"><a href="#7-3-更新照片信息" class="headerlink" title="7.3 更新照片信息"></a>7.3 更新照片信息</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以更新照片的信息（如名称、描述等）。</li>
+<li><strong>请求路径</strong> ：<code>PUT /admin/photos</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>PhotoInfoVO</code>（请求体，包含照片信息）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoController.updatePhoto</code></li>
+<li><code>PhotoService.updatePhoto</code> &lt;= <code>PhotoServiceImpl.updatePhoto</code></li>
+<li><code>PhotoMapper.updateById</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="7-4-保存照片"><a href="#7-4-保存照片" class="headerlink" title="7.4 保存照片"></a>7.4 保存照片</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以保存新上传的照片。</li>
+<li><strong>请求路径</strong> ：<code>POST /admin/photos</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>PhotoVO</code>（请求体，包含照片URL、相册ID等信息）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoController.savePhotos</code></li>
+<li><code>PhotoService.savePhotos</code> &lt;= <code>PhotoServiceImpl.savePhotos</code></li>
+<li><code>PhotoService.saveBatch</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="7-5-移动照片相册"><a href="#7-5-移动照片相册" class="headerlink" title="7.5 移动照片相册"></a>7.5 移动照片相册</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以将照片从一个相册移动到另一个相册。</li>
+<li><strong>请求路径</strong> ：<code>PUT /admin/photos/album</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>PhotoVO</code>（请求体，包含照片ID和目标相册ID）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoController.updatePhotosAlbum</code></li>
+<li><code>PhotoService.updatePhotosAlbum</code> &lt;= <code>PhotoServiceImpl.updatePhotosAlbum</code></li>
+<li><code>PhotoService.updateBatchById</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="7-6-更新照片删除状态"><a href="#7-6-更新照片删除状态" class="headerlink" title="7.6 更新照片删除状态"></a>7.6 更新照片删除状态</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以更改照片的删除状态（标记为已删除或恢复）。</li>
+<li><strong>请求路径</strong> ：<code>PUT /admin/photos/delete</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>DeleteVO</code>（请求体，包含照片ID和删除状态）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoController.updatePhotoDelete</code></li>
+<li><code>PhotoService.updatePhotoDelete</code> &lt;= <code>PhotoServiceImpl.updatePhotoDelete</code></li>
+<li><code>PhotoService.updateBatchById</code></li>
+<li><code>PhotoMapper.updateBatchById</code></li>
+<li><code>PhotoMapper.selectList</code></li>
+<li><code>PhotoAlbumService.updateBatchById</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="7-7-删除照片"><a href="#7-7-删除照片" class="headerlink" title="7.7 删除照片"></a>7.7 删除照片</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以删除指定的照片。</li>
+<li><strong>请求路径</strong> ：<code>DELETE /admin/photos</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>List&lt;Integer&gt; photoIds</code>（请求体，包含多个照片ID）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoController.deletePhotos</code></li>
+<li><code>PhotoService.deletePhotos</code> &lt;= <code>PhotoServiceImpl.deletePhotos</code></li>
+<li><code>PhotoMapper.deleteBatchIds</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="7-8-根据相册ID查看照片列表"><a href="#7-8-根据相册ID查看照片列表" class="headerlink" title="7.8 根据相册ID查看照片列表"></a>7.8 根据相册ID查看照片列表</h3><ul>
+<li><strong>功能描述</strong> ：根据相册ID查看相册中的照片列表。</li>
+<li><strong>请求路径</strong> ：<code>GET /albums/{albumId}/photos</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>albumId</code>（URL路径参数Integer，相册ID）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;PhotoDTO&gt;</code>（照片详情，包含相册封面、名称和照片列表）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoController.listPhotosByAlbumId</code></li>
+<li><code>PhotoService.listPhotosByAlbumId</code> &lt;= <code>PhotoServiceImpl.listPhotosByAlbumId</code></li>
+<li><code>PhotoAlbumService.getOne</code></li>
+<li><code>PhotoMapper.selectPage</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="8-相册模块"><a href="#8-相册模块" class="headerlink" title="8. 相册模块"></a>8. 相册模块</h2><ul>
+<li>Controller: <code>PhotoAlbumController</code></li>
+<li>Service: <ul>
+<li><code>PhotoAlbumService</code> &lt;= <code>PhotoAlbumServiceImpl</code></li>
+<li><code>UploadStrategyContext</code></li>
+</ul>
+</li>
+<li>Mapper: <ul>
+<li><code>PhotoAlbumMapper</code></li>
+<li><code>PhotoMapper</code></li>
+</ul>
+</li>
+</ul>
+<p>相册模块负责管理系统中的相册信息，包括创建、删除、查询相册等功能。</p>
+<h3 id="8-1-上传相册封面"><a href="#8-1-上传相册封面" class="headerlink" title="8.1 上传相册封面"></a>8.1 上传相册封面</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以上传相册封面，封面图片将存储在指定路径。</li>
+<li><strong>请求路径</strong> ：<code>POST /admin/photos/albums/upload</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>file</code>（<code>MultipartFile</code>，上传的相册封面文件）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;String&gt;</code>（上传后的文件路径）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoAlbumController.savePhotoAlbumCover</code></li>
+<li><code>UploadStrategyContext.executeUploadStrategy</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="8-2-保存或更新相册"><a href="#8-2-保存或更新相册" class="headerlink" title="8.2 保存或更新相册"></a>8.2 保存或更新相册</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以保存或更新相册信息，包括相册名称、封面等。</li>
+<li><strong>请求路径</strong> ：<code>POST /admin/photos/albums</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>PhotoAlbumVO</code>（请求体，包含相册信息）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoAlbumController.saveOrUpdatePhotoAlbum</code></li>
+<li><code>PhotoAlbumService.saveOrUpdatePhotoAlbum</code> &lt;= <code>PhotoAlbumServiceImpl.saveOrUpdatePhotoAlbum</code></li>
+<li><code>PhotoAlbumMapper.selectOne</code></li>
+<li><code>PhotoAlbumService.saveOrUpdate</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="8-3-查看后台相册列表"><a href="#8-3-查看后台相册列表" class="headerlink" title="8.3 查看后台相册列表"></a>8.3 查看后台相册列表</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以查看相册列表，并支持分页查询。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/photos/albums</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>ConditionVO</code>（请求体，包含相册名称、删除状态等筛选条件）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;PageResultDTO&lt;PhotoAlbumAdminDTO&gt;&gt;</code>（分页后的相册列表）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoAlbumController.listPhotoAlbumBacks</code></li>
+<li><code>PhotoAlbumService.listPhotoAlbumsAdmin</code> &lt;= <code>PhotoAlbumServiceImpl.listPhotoAlbumsAdmin</code></li>
+<li><code>PhotoAlbumMapper.selectCount</code></li>
+<li><code>PhotoAlbumMapper.listPhotoAlbumsAdmin</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="8-4-获取后台相册列表信息"><a href="#8-4-获取后台相册列表信息" class="headerlink" title="8.4 获取后台相册列表信息"></a>8.4 获取后台相册列表信息</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以获取所有相册的简要信息。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/photos/albums/info</code></li>
+<li><strong>请求参数</strong> ：无</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;List&lt;PhotoAlbumDTO&gt;&gt;</code>（相册简要信息列表）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoAlbumController.listPhotoAlbumBackInfos</code></li>
+<li><code>PhotoAlbumService.listPhotoAlbumInfosAdmin</code> &lt;= <code>PhotoAlbumServiceImpl.listPhotoAlbumInfosAdmin</code></li>
+<li><code>PhotoAlbumMapper.selectList</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="8-5-根据ID获取后台相册信息"><a href="#8-5-根据ID获取后台相册信息" class="headerlink" title="8.5 根据ID获取后台相册信息"></a>8.5 根据ID获取后台相册信息</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以通过相册ID查看该相册的详细信息，包括相册名称、封面、照片数量等。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/photos/albums/{albumId}/info</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>albumId</code>（URL路径参数，相册ID）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;PhotoAlbumAdminDTO&gt;</code>（相册详细信息）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoAlbumController.getPhotoAlbumBackById</code></li>
+<li><code>PhotoAlbumService.getPhotoAlbumByIdAdmin</code> &lt;= <code>PhotoAlbumServiceImpl.getPhotoAlbumByIdAdmin</code></li>
+<li><code>PhotoAlbumMapper.selectById</code></li>
+<li><code>PhotoAlbumMapper.selectCount</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="8-6-根据ID删除相册"><a href="#8-6-根据ID删除相册" class="headerlink" title="8.6 根据ID删除相册"></a>8.6 根据ID删除相册</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以删除指定ID的相册，如果相册下有照片，将会标记为删除状态。</li>
+<li><strong>请求路径</strong> ：<code>DELETE /admin/photos/albums/{albumId}</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>albumId</code>（URL路径参数，相册ID）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoAlbumController.deletePhotoAlbumById</code></li>
+<li><code>PhotoAlbumService.deletePhotoAlbumById</code> &lt;= <code>PhotoAlbumServiceImpl.deletePhotoAlbumById</code></li>
+<li><code>PhotoMapper.selectCount</code></li>
+<li><code>PhotoAlbumMapper.updateById</code></li>
+<li><code>PhotoMapper.update</code></li>
+<li><code>PhotoAlbumMapper.deleteById</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="8-7-获取相册列表"><a href="#8-7-获取相册列表" class="headerlink" title="8.7 获取相册列表"></a>8.7 获取相册列表</h3><ul>
+<li><strong>功能描述</strong> ：所有用户可以查看公开状态的相册列表。</li>
+<li><strong>请求路径</strong> ：<code>GET /photos/albums</code></li>
+<li><strong>请求参数</strong> ：无</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;List&lt;PhotoAlbumDTO&gt;&gt;</code>（公开状态的相册列表）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>PhotoAlbumController.listPhotoAlbums</code></li>
+<li><code>PhotoAlbumService.listPhotoAlbums</code> &lt;= <code>PhotoAlbumServiceImpl.listPhotoAlbums</code></li>
+<li><code>PhotoAlbumMapper.selectList</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="9-操作日志模块"><a href="#9-操作日志模块" class="headerlink" title="9. 操作日志模块"></a>9. 操作日志模块</h2><ul>
+<li>Controller: <code>OperationLogController</code></li>
+<li>Service: <ul>
+<li><code>OperationLogService</code> &lt;= <code>OperationLogServiceImpl</code></li>
+</ul>
+</li>
+</ul>
+<p>操作日志模块用于记录系统的操作日志，包括操作记录的查看和删除功能。</p>
+<h3 id="9-1-查看操作日志"><a href="#9-1-查看操作日志" class="headerlink" title="9.1 查看操作日志"></a>9.1 查看操作日志</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以查看操作日志，可以根据操作模块或描述进行筛选，并支持分页显示。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/operation/logs</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>ConditionVO</code>（请求体，包含操作日志的筛选条件，如操作模块、操作描述、分页信息等）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;PageResultDTO&lt;OperationLogDTO&gt;&gt;</code>（分页后的操作日志列表）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>OperationLogController.listOperationLogs</code></li>
+<li><code>OperationLogService.listOperationLogs</code> &lt;= <code>OperationLogServiceImpl.listOperationLogs</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="9-2-删除操作日志"><a href="#9-2-删除操作日志" class="headerlink" title="9.2 删除操作日志"></a>9.2 删除操作日志</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以删除指定的操作日志，通过日志ID批量删除操作日志。</li>
+<li><strong>请求路径</strong> ：<code>DELETE /admin/operation/logs</code></li>
+<li><strong>请求参数</strong> ： <ul>
+<li><code>operationLogIds</code>（请求体<code>List&lt;Integer&gt;</code>，包含操作日志ID的列表）</li>
+</ul>
+</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code></li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>OperationLogController.deleteOperationLogs</code></li>
+<li><code>OperationLogService.removeByIds</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="10-菜单模块"><a href="#10-菜单模块" class="headerlink" title="10. 菜单模块"></a>10. 菜单模块</h2><ul>
+<li>Controller: <code>MenuController</code></li>
+<li>Service: <ul>
+<li><code>MenuService</code> &lt;= <code>MenuServiceImpl</code></li>
+</ul>
+</li>
+<li>Mapper: <ul>
+<li><code>MenuMapper</code></li>
+<li><code>RoleMenuMapper</code></li>
+</ul>
+</li>
+</ul>
+<p>菜单模块用于管理系统中的菜单，包括菜单的增、删、改、查功能，以及与角色和用户相关的菜单配置。</p>
+<h3 id="10-1-查看菜单列表"><a href="#10-1-查看菜单列表" class="headerlink" title="10.1 查看菜单列表"></a>10.1 查看菜单列表</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以查看系统菜单列表，可以根据菜单名称进行模糊搜索，返回的菜单列表支持树形结构展示，按照 <code>orderNum</code> 排序。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/menus</code></li>
+<li><strong>请求参数</strong> ：<code>ConditionVO</code>（包含菜单名称关键词，用于模糊搜索）</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;List&lt;MenuDTO&gt;&gt;</code>（菜单列表，按树形结构组织）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>MenuController.listMenus</code></li>
+<li><code>MenuService.listMenus</code> &lt;= <code>MenuServiceImpl.listMenus</code></li>
+<li><code>MenuMapper.selectList</code></li>
+<li><code>MenuService.listCatalogs</code></li>
+<li><code>MenuService.getMenuMap</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="10-2-新增或修改菜单"><a href="#10-2-新增或修改菜单" class="headerlink" title="10.2 新增或修改菜单"></a>10.2 新增或修改菜单</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以新增或修改菜单。</li>
+<li><strong>请求路径</strong> ：<code>POST /admin/menus</code></li>
+<li><strong>请求参数</strong> ：<code>MenuVO</code>（菜单信息）</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code>（操作结果）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>MenuController.saveOrUpdateMenu</code></li>
+<li><code>MenuService.saveOrUpdateMenu</code> &lt;= <code>MenuServiceImpl.saveOrUpdateMenu</code></li>
+<li><code>MenuService.saveOrUpdate</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="10-3-修改菜单是否隐藏"><a href="#10-3-修改菜单是否隐藏" class="headerlink" title="10.3 修改菜单是否隐藏"></a>10.3 修改菜单是否隐藏</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以修改菜单的 <code>isHidden</code> 状态，决定菜单是否在前端显示。</li>
+<li><strong>请求路径</strong> ：<code>PUT /admin/menus/isHidden</code></li>
+<li><strong>请求参数</strong> ：<code>IsHiddenVO</code>（菜单ID和隐藏状态）</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code>（操作结果）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>MenuController.updateMenuIsHidden</code></li>
+<li><code>MenuService.updateMenuIsHidden</code> &lt;= <code>MenuServiceImpl.updateMenuIsHidden</code></li>
+<li><code>MenuMapper.updateById</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="10-4-删除菜单"><a href="#10-4-删除菜单" class="headerlink" title="10.4 删除菜单"></a>10.4 删除菜单</h3><ul>
+<li><strong>功能描述</strong> ：管理员可以删除指定的菜单。如果该菜单下存在角色关联或子菜单，删除时需要进行处理。</li>
+<li><strong>请求路径</strong> ：<code>DELETE /admin/menus/{menuId}</code></li>
+<li><strong>请求参数</strong> ：<code>menuId</code>（Integer，菜单ID）</li>
+<li><strong>返回结果</strong> ：<code>ResultVO</code>（操作结果）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>MenuController.deleteMenu</code></li>
+<li><code>MenuService.deleteMenu</code> &lt;= <code>MenuServiceImpl.deleteMenu</code></li>
+<li><code>RoleMenuMapper.selectCount</code></li>
+<li><code>MenuMapper.selectList</code></li>
+<li><code>MenuMapper.deleteBatchIds</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="10-5-查看角色菜单选项"><a href="#10-5-查看角色菜单选项" class="headerlink" title="10.5 查看角色菜单选项"></a>10.5 查看角色菜单选项</h3><ul>
+<li><strong>功能描述</strong> ：管理员查看角色对应的菜单选项，通常用于角色权限配置。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/role/menus</code></li>
+<li><strong>请求参数</strong> ：无</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;List&lt;LabelOptionDTO&gt;&gt;</code>（角色菜单选项）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>MenuController.listMenuOptions</code></li>
+<li><code>MenuService.listMenuOptions</code> &lt;= <code>MenuServiceImpl.listMenuOptions</code></li>
+<li><code>MenuMapper.selectList</code></li>
+<li><code>MenuService.listCatalogs</code></li>
+<li><code>MenuService.getMenuMap</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="10-6-查看当前用户菜单"><a href="#10-6-查看当前用户菜单" class="headerlink" title="10.6 查看当前用户菜单"></a>10.6 查看当前用户菜单</h3><ul>
+<li><strong>功能描述</strong> ：获取当前登录用户的菜单列表，返回的是用户可以访问的菜单。</li>
+<li><strong>请求路径</strong> ：<code>GET /admin/user/menus</code></li>
+<li><strong>请求参数</strong> ：无</li>
+<li><strong>返回结果</strong> ：<code>ResultVO&lt;List&lt;UserMenuDTO&gt;&gt;</code>（用户菜单列表）</li>
+<li><strong>实现函数</strong> ： <ul>
+<li><code>MenuController.listUserMenus</code></li>
+<li><code>MenuService.listUserMenus</code> &lt;= <code>MenuServiceImpl.listUserMenus</code></li>
+<li><code>MenuMapper.listMenusByUserInfoId</code></li>
+<li><code>MenuService.listCatalogs</code></li>
+<li><code>MenuService.getMenuMap</code></li>
+<li><code>MenuService.convertUserMenuList</code></li>
+</ul>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/blog/about" rel="external nofollow noreferrer">浪迹天涯的小柴</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://lixutian.github.io/blog/blog/2024/11/30/aurora-blog-hou-duan-xu-qiu-xia/">http://lixutian.github.io/blog/blog/2024/11/30/aurora-blog-hou-duan-xu-qiu-xia/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/blog/about" target="_blank">浪迹天涯的小柴</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/blog/tags/Aurora-Blog/">
+                                    <span class="chip bg-color">Aurora Blog</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/blog/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,qq,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/blog/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">欢迎施舍，喵~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/blog/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/blog/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/blog/2024/11/30/aurora-blog-hou-duan-xu-qiu-xia/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/1.jpg" class="responsive-img" alt="aurora blog 后端需求-下">
+                        
+                        <span class="card-title">aurora blog 后端需求-下</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/%E6%89%93%E9%BB%91%E5%B7%A5/" class="post-category">
+                                    打黑工
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/Aurora-Blog/">
+                        <span class="chip bg-color">Aurora Blog</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/3.jpg" class="responsive-img" alt="aurora blog 前端前台需求">
+                        
+                        <span class="card-title">aurora blog 前端前台需求</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/%E6%89%93%E9%BB%91%E5%B7%A5/" class="post-category">
+                                    打黑工
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/Aurora-Blog/">
+                        <span class="chip bg-color">Aurora Blog</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/blog/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/blog/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/blog/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/blog/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2024</span>
+            <a href="/blog/about" target="_blank">浪迹天涯的小柴</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">10.2k</span>
+            
+            
+            
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/a496263365" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:a496263365a@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=496263365" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 496263365" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/blog/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/blog/libs/materialize/materialize.min.js"></script>
+    <script src="/blog/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/blog/libs/aos/aos.js"></script>
+    <script src="/blog/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/blog/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/blog/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/blog/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/blog/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/blog/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/blog/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
