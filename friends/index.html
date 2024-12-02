@@ -303,6 +303,10 @@
     </div>
 </div>
 <style>
+    .friend-name{
+        font-size: 1.5rem;
+    }
+
     .friends-container {
         margin-top: -100px;
         margin-bottom: 30px;
@@ -511,7 +515,7 @@
                                         <img src="http://image.luokangyuan.com/4027734.jpeg" alt="img">
                                         <div>
                                             <h1 class="friend-name">闪烁之狐</h1>
-                                            <p style="position: relative;top: -35px;">本站主题作者，编程界大佬，技术牛，人还特别好，不懂的都可以请教大佬</p>
+                                            <p style="position: relative;top: -35px;">本站主题Matery的作者</p>
                                         </div>
                                     </div>
                                     <div class="friend-button">
@@ -529,16 +533,37 @@
                             <div class="card frind-card2">
                                 <div class="frind-ship">
                                     <div class="title">
-                                        <img src="http://image.luokangyuan.com/1_qq_27922023.jpg" alt="img">
+                                        <img src="https://lixutian.github.io/blog/medias/avatar.jpg" alt="img">
                                         <div>
-                                            <h1 class="friend-name">码酱</h1>
-                                            <p style="position: relative;top: -35px;">我不是大佬，只是在追寻大佬的脚步</p>
+                                            <h1 class="friend-name">浪迹天涯的小柴</h1>
+                                            <p style="position: relative;top: -35px;">小柴的学术主页</p>
                                         </div>
                                     </div>
                                     <div class="friend-button">
-                                        <a href="http://luokangyuan.com/" target="_blank"
+                                        <a href="https://lixutian.github.io/" target="_blank"
                                             class="button button-glow button-rounded button-caution">
-                                            前去学习
+                                            了解更多
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
+                            <div class="card frind-card3">
+                                <div class="frind-ship">
+                                    <div class="title">
+                                        <img src="http://blog.whff521.xyz/images/101.jpg" alt="img">
+                                        <div>
+                                            <h1 class="friend-name">AiRomance</h1>
+                                            <p style="position: relative;top: -35px;">另一个热爱技术的小伙子</p>
+                                        </div>
+                                    </div>
+                                    <div class="friend-button">
+                                        <a href="http://blog.whff521.xyz/" target="_blank"
+                                            class="button button-glow button-rounded button-caution">
+                                            前去拜访
                                         </a>
                                     </div>
                                 </div>
@@ -792,6 +817,16 @@ $(function () {
     
     
     
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/blog/libs/others/sakura-small.js"><\/script>');
+            }
+        </script>
+    
+
 
     <!-- 雪花特效 -->
     
@@ -824,7 +859,9 @@ $(function () {
 </script>
 
     
-    <script src="/blog/libs/others/clicklove.js" async="async"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <script src="/blog/libs/others/fireworks.js"></script>
     
     
 
