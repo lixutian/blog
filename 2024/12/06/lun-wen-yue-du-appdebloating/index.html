@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="论文阅读, 技术 博客 软件">
+    <meta name="keywords" content="论文阅读-AppDebloating, 技术 博客 软件">
     <meta name="description" content="1. 2023 GPT4Graph论文题目：GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>论文阅读 | 小柴博客</title>
+    <title>论文阅读-AppDebloating | 小柴博客</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
     
 
@@ -252,12 +252,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">论文阅读</h1>
+                    <h1 class="description center-align post-title">论文阅读-AppDebloating</h1>
                 </div>
             </div>
         </div>
@@ -376,7 +376,7 @@
 <p>进行实证研究，评估LLM在理解图数据方面的能力</p>
 <ul>
 <li><p>提出一个集成LLM和图结构数据的框架</p>
-<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733452387000.png" alt="1733452387000"></p>
+<p><img src="/blog/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-AppDebloating/1733452387000.png" alt="1733452387000"></p>
 <ul>
 <li><strong>手工提示 Manual Prompt</strong>：生成图的图描述语言GDL，将用户查询的query与GDL结合起来形成LLM的输入</li>
 <li><strong>自提示 Self Prompt</strong>：LLM推理过程中的中间输出反馈回输入，如图的上下文解释、图格式描述</li>
@@ -405,7 +405,7 @@
 <li><p>对各种提示进行实验</p>
 <ul>
 <li><p>结构理解任务-引文网络 obgn-arxiv、Aminer</p>
-<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733450824433.png" alt="结构理解任务实验结果"></p>
+<p><img src="/blog/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-AppDebloating/1733450824433.png" alt="结构理解任务实验结果"></p>
 <ul>
 <li>输入设计对结果有重大影响</li>
 <li>角色提示通常可以提高性能</li>
@@ -416,18 +416,18 @@
 <li><p>语义理解任务-知识图谱问答 Wiki、MetaQA</p>
 <ul>
 <li><p>KGQA和GQL生成</p>
-<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733451064493.png" alt="1733451064493"></p>
+<p><img src="/blog/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-AppDebloating/1733451064493.png" alt="1733451064493"></p>
 <p>SOTA更好，但是LLM也不赖</p>
 <p>KGQA上zero-shot-cot+graph+change-order普遍更好</p>
 <p>GQL生成上one-shot比zero-shot好</p>
 </li>
 <li><p>节点分类任务</p>
-<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733451371183.png" alt="1733451371183"></p>
+<p><img src="/blog/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-AppDebloating/1733451371183.png" alt="1733451371183"></p>
 <p>2-hop上下文比1-hop更好</p>
 <p>COT对这项任务不那么奏效</p>
 </li>
 <li><p>图分类任务</p>
-<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733451558144.png" alt="1733451558144"></p>
+<p><img src="/blog/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-AppDebloating/1733451558144.png" alt="1733451558144"></p>
 <p>self-prompt的自格式解释和自总结很有效</p>
 </li>
 </ul>
@@ -488,7 +488,7 @@
 <h2 id="3-2024-ICSE-MiniMon"><a href="#3-2024-ICSE-MiniMon" class="headerlink" title="3. 2024 ICSE MiniMon"></a>3. 2024 ICSE MiniMon</h2><p>论文题目：<a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3597503.3639113">MiniMon: Minimizing Android Applications with Intelligent Monitoring-Based Debloating</a></p>
 <p>与第2篇工作AutoDebloater是同一个作者，两篇文章针对的问题背景是一致的，但是这篇不再依赖用户自己选择所需功能，而是通过监控用户的使用记录，从而更自动化的挖掘用户意图并Debloate App。同时Debloating的粒度从Activity变成了method</p>
 <p><strong>方法</strong>：</p>
-<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733463210740.png" alt="1733463210740"></p>
+<p><img src="/blog/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-AppDebloating/1733463210740.png" alt="1733463210740"></p>
 <ol>
 <li><p>静态插桩监视执行情况</p>
 <p>使用Soot的BodyTransformer类对应用程序进行静态插桩，在method的第一个指令前插入 方法签名、时间戳、应用程序名称</p>
@@ -533,7 +533,7 @@
 <blockquote>
 <p>The intuition is if a method is commonly executed in the<br>static execution paths, then it should have a lower weight in the<br>embedding.</p>
 </blockquote>
-<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733464769531.png" alt="IDF计算公式"></p>
+<p><img src="/blog/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-AppDebloating/1733464769531.png" alt="IDF计算公式"></p>
 </li>
 <li><p>IDF-POS，添加位置权重</p>
 </li>
@@ -571,7 +571,7 @@
 <h2 id="4-2023-资源独立工作流可满足性的最小增量模式回溯"><a href="#4-2023-资源独立工作流可满足性的最小增量模式回溯" class="headerlink" title="4. 2023 资源独立工作流可满足性的最小增量模式回溯"></a>4. 2023 资源独立工作流可满足性的最小增量模式回溯</h2><p>论文题目：<a target="_blank" rel="noopener" href="https://www.jos.org.cn/jos/article/abstract/6682?st=article_issue">资源独立工作流可满足性的最小增量模式回溯</a></p>
 <p>这篇文章针对高资源配比（资源数n显著大于步骤数k）的工作流可满足性问题（Workflow Satisfiability Problem, WSP)，在资源独立性约束下，改进原有的SOTA方法增量模式回溯法（Incremental Pattern Backtracking, IPB），提出最小增量模式回溯法MIPB，理论上降低了时间复杂度，并进行对比实验检验了算法运行时空性能</p>
 <p>原理：子模式具有唯一增块，增块形成于父子模式的原子性差异，即二者只相差一个增元。论文利用这一最小差异，在计算模式完全指派图时，将增块的候选邻点验证代价降至O(1)，而邻点搜索范围的实际规模可在O(n)量级内极大收缩。据此完全指派图的增量计算时间从O(kn)降至O(n)</p>
-<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733408853315.png" alt="MIPB算法"></p>
+<p><img src="/blog/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-AppDebloating/1733408853315.png" alt="MIPB算法"></p>
 <p>这篇文章全是各种定义和证明，感觉我好像缺少了不止一点前置知识，有种在看天书的感觉，除了整体脉络根本没看懂。。。。</p>
 
                 
@@ -754,9 +754,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/11.jpg" class="responsive-img" alt="论文阅读">
+                        <img src="/blog/medias/featureimages/6.jpg" class="responsive-img" alt="论文阅读-AppDebloating">
                         
-                        <span class="card-title">论文阅读</span>
+                        <span class="card-title">论文阅读-AppDebloating</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
