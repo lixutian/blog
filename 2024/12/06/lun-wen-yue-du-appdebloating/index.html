@@ -4,15 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="aurora blog 前端前台需求, 技术 博客 软件">
-    <meta name="description" content="前端需求展示页面一、页面形式
-Header导航栏
-显示LOGO
-有首页、说说、关于、归档、标签、留言、友链、相册等导航按钮，点击后影响页面显示内容
-搜索按钮
-选择语言
-用户头像或登录按钮
-未登录时显示登录按钮，点击后显示登录弹窗，要求输入账">
+    <meta name="keywords" content="论文阅读, 技术 博客 软件">
+    <meta name="description" content="1. 2023 GPT4Graph论文题目：GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +17,7 @@ Header导航栏
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>aurora blog 前端前台需求 | 小柴博客</title>
+    <title>论文阅读 | 小柴博客</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
     
 
@@ -259,12 +252,12 @@ Header导航栏
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">aurora blog 前端前台需求</h1>
+                    <h1 class="description center-align post-title">论文阅读</h1>
                 </div>
             </div>
         </div>
@@ -288,8 +281,36 @@ Header导航栏
                     
                     <div class="article-tag">
                         
-                            <a href="/blog/tags/Aurora-Blog/">
-                                <span class="chip bg-color">Aurora Blog</span>
+                            <a href="/blog/tags/LLM/">
+                                <span class="chip bg-color">LLM</span>
+                            </a>
+                        
+                            <a href="/blog/tags/Graph/">
+                                <span class="chip bg-color">Graph</span>
+                            </a>
+                        
+                            <a href="/blog/tags/Android/">
+                                <span class="chip bg-color">Android</span>
+                            </a>
+                        
+                            <a href="/blog/tags/Debloating/">
+                                <span class="chip bg-color">Debloating</span>
+                            </a>
+                        
+                            <a href="/blog/tags/%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">静态分析</span>
+                            </a>
+                        
+                            <a href="/blog/tags/%E7%A8%8B%E5%BA%8F%E5%88%87%E7%89%87/">
+                                <span class="chip bg-color">程序切片</span>
+                            </a>
+                        
+                            <a href="/blog/tags/%E5%9B%BE%E8%81%9A%E7%B1%BB/">
+                                <span class="chip bg-color">图聚类</span>
+                            </a>
+                        
+                            <a href="/blog/tags/%E5%9B%BE%E5%B5%8C%E5%85%A5/">
+                                <span class="chip bg-color">图嵌入</span>
                             </a>
                         
                     </div>
@@ -300,8 +321,12 @@ Header导航栏
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/blog/categories/%E6%89%93%E9%BB%91%E5%B7%A5/" class="post-category">
-                                打黑工
+                            <a href="/blog/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                学习
+                            </a>
+                        
+                            <a href="/blog/categories/%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/" class="post-category">
+                                论文
                             </a>
                         
                     </div>
@@ -313,7 +338,7 @@ Header导航栏
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-11-27
+                    2024-12-06
                 </div>
                 
 
@@ -347,188 +372,208 @@ Header导航栏
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前端需求"><a href="#前端需求" class="headerlink" title="前端需求"></a>前端需求</h2><h3 id="展示页面"><a href="#展示页面" class="headerlink" title="展示页面"></a>展示页面</h3><h4 id="一、页面形式"><a href="#一、页面形式" class="headerlink" title="一、页面形式"></a>一、页面形式</h4><ol>
-<li>Header导航栏<ul>
-<li>显示LOGO</li>
-<li>有首页、说说、关于、归档、标签、留言、友链、相册等导航按钮，点击后影响页面显示内容</li>
-<li>搜索按钮</li>
-<li>选择语言</li>
-<li>用户头像或登录按钮<ul>
-<li>未登录时显示登录按钮，点击后显示登录弹窗，要求输入账号密码，可选择注册</li>
-<li>注册页面要求提供账号密码、邮箱及其验证码</li>
-<li>登录后显示头像，点击头像时二次选择用户中心或登出选项</li>
-</ul>
-</li>
-<li>色彩主题设置按钮</li>
-</ul>
-</li>
-<li>Footer页脚显示版权信息和备案号</li>
-<li>中间显示内容根据导航栏的选择决定</li>
-<li>除首页外每个页面左上角显示当前路径或标题</li>
-<li>左下角有个小史莱姆说废话</li>
-<li>右下角有一个选项标签，下滑动作时收到右侧，不在顶部时显示页面进度和回到顶部按钮<ul>
-<li>回到顶部，点击后回到顶部</li>
-<li>搜索按钮，点击后弹出**[搜索页面]**对话框</li>
-<li>首页导航按钮，点击后回到首页</li>
-</ul>
-</li>
-<li>用户中心Sider侧边栏<ul>
-<li>头像</li>
-<li>可更改的昵称、网址、描述输入框</li>
-<li>不可更改的邮箱输入框，右面有单独修改按钮<ul>
-<li>点击后弹出邮箱修改弹窗，要求输入邮箱和验证码</li>
-</ul>
-</li>
-<li>订阅开关</li>
-<li>修改按钮</li>
-</ul>
-</li>
-<li>右上角的弹窗提醒</li>
-<li>**[搜索页面]**模态弹窗</li>
-</ol>
-<h4 id="二、首页"><a href="#二、首页" class="headerlink" title="二、首页"></a>二、首页</h4><ol>
-<li>最上面一篇置顶**[文章 格子]**占一排</li>
-<li>接下来两篇推荐**[文章 格子]**放一排</li>
-<li>最后是一个布局<ul>
-<li>左侧是文章列表<ul>
-<li>显示所有标签和全部选项，点击后以此进行筛选</li>
-<li>下面有分页码信息</li>
-<li>一系列**[文章 格子]**<ul>
-<li>标题</li>
-<li>部分内容</li>
-<li>封面图片</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>右侧是一些信息<ul>
-<li><strong>[博客信息介绍 格子]</strong></li>
-<li><strong>[最近评论 格子]</strong></li>
-<li><strong>[标签目录 格子]</strong></li>
-<li><strong>[公告 格子]</strong></li>
-<li><strong>[网站信息 格子]</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="三、说说页面"><a href="#三、说说页面" class="headerlink" title="三、说说页面"></a>三、说说页面</h4><ol>
-<li>左侧是说说列表<ul>
-<li>下面有分页码信息</li>
-<li><strong>[说说 格子]</strong></li>
-</ul>
-</li>
-<li>右侧有一个**[博客信息介绍 格子]**</li>
-</ol>
-<h4 id="四、关于页面"><a href="#四、关于页面" class="headerlink" title="四、关于页面"></a>四、关于页面</h4><p>就是一篇叫做“关于”的文章详情页面，不显示显示上一篇和下一篇而已</p>
-<h4 id="五、归档页面"><a href="#五、归档页面" class="headerlink" title="五、归档页面"></a>五、归档页面</h4><p>显示博客文章的时间轴</p>
+                <h2 id="1-2023-GPT4Graph"><a href="#1-2023-GPT4Graph" class="headerlink" title="1. 2023 GPT4Graph"></a>1. 2023 GPT4Graph</h2><p>论文题目：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.15066">GPT4Graph: Can Large Language Models Understand Graph Structured Data? An Empirical Evaluation and Benchmarking</a></p>
+<p>进行实证研究，评估LLM在理解图数据方面的能力</p>
 <ul>
-<li>中间一根轴，每个月一个，分页</li>
-<li>其中一侧是日期</li>
-<li>另一侧是不显示封面的**[文章格子]**，点击可查看对应文章</li>
-</ul>
-<h4 id="六、标签页面"><a href="#六、标签页面" class="headerlink" title="六、标签页面"></a>六、标签页面</h4><p>显示所有标签和每个标签下对应的文章数量，点击可跳转</p>
-<h4 id="七、留言页面"><a href="#七、留言页面" class="headerlink" title="七、留言页面"></a>七、留言页面</h4><p>就是一篇叫做“留言”的文章详情页面，不显示显示上一篇和下一篇而已</p>
-<h4 id="八、友链页面"><a href="#八、友链页面" class="headerlink" title="八、友链页面"></a>八、友链页面</h4><p>差不多是一篇叫做“友链”的文章详情页面，不显示显示上一篇和下一篇而已</p>
-<p>额外显示友链信息，每个友链显示头像、名称、介绍，点击可跳转友链链接</p>
-<h4 id="九、相册页面"><a href="#九、相册页面" class="headerlink" title="九、相册页面"></a>九、相册页面</h4><ul>
-<li><p>点中相册导航时显示相册的二级菜单，再次点击跳转</p>
-</li>
-<li><p>显示该相册内的所有照片，点击看大图</p>
-</li>
-</ul>
-<h4 id="十、文章详情页面"><a href="#十、文章详情页面" class="headerlink" title="十、文章详情页面"></a>十、文章详情页面</h4><ul>
-<li>左侧<ul>
-<li>左上角显示 分类、标签、标题</li>
-<li>左上角接下来显示作者头像、昵称、发布时间、字数统计、预计阅读时间</li>
-<li>以MarkDown形式显示博客内容</li>
-<li>下面显示上一篇和下一篇**[文章 格子]**</li>
-<li><strong>[评论区]</strong></li>
-</ul>
-</li>
-<li>右侧<ul>
-<li><strong>[博客信息介绍 格子]</strong></li>
-<li>文章的Md标题目录</li>
-<li>三个按钮，返回上级、返回顶部、发送66</li>
-</ul>
-</li>
-</ul>
-<h4 id="十一、说说详情页面"><a href="#十一、说说详情页面" class="headerlink" title="十一、说说详情页面"></a>十一、说说详情页面</h4><ul>
-<li>左侧<ul>
-<li><strong>[说说格子]</strong></li>
-<li><strong>[评论区]</strong></li>
-</ul>
-</li>
-<li>右侧<ul>
-<li><strong>[博客信息介绍 格子]</strong></li>
-</ul>
-</li>
-</ul>
-<h4 id="十二、搜索页面"><a href="#十二、搜索页面" class="headerlink" title="十二、搜索页面"></a>十二、搜索页面</h4><ul>
-<li>一个输入框，输入内容后右侧有清空按钮</li>
-<li>未输入内容时下面显示最近搜索结果</li>
-<li>输入内容时实时搜索并显示搜索结果</li>
-<li>鼠标点击搜索结果跳转到对应的**[文章详情页面]**</li>
-<li>被选中的搜索结果外侧高亮标识</li>
-<li>Enter跳转到选中结果的**[文章详情页面]**</li>
-<li>上下键移动选中</li>
-<li>Esc或鼠标点击对话框外侧关闭搜索对话框</li>
-<li>下面显示提示信息和使用的搜索引擎</li>
-</ul>
-<h4 id="十三、404页面"><a href="#十三、404页面" class="headerlink" title="十三、404页面"></a>十三、404页面</h4><h3 id="前端组件"><a href="#前端组件" class="headerlink" title="前端组件"></a>前端组件</h3><h4 id="一、文章-格子"><a href="#一、文章-格子" class="headerlink" title="一、文章 格子"></a>一、文章 格子</h4><ul>
-<li>标题</li>
-<li>部分内容</li>
-<li>点击跳转到文章详情</li>
-<li>显示推荐或置顶属性信息</li>
-</ul>
-<h4 id="二、博客信息介绍-格子"><a href="#二、博客信息介绍-格子" class="headerlink" title="二、博客信息介绍 格子"></a>二、博客信息介绍 格子</h4><ul>
-<li>作者头像</li>
-<li>作者昵称</li>
-<li>个人简介</li>
-<li>个人其他网站链接（如GitHub、Gitee）</li>
-<li>博客信息统计（文章、说说、分类、标签的数量）</li>
-</ul>
-<h4 id="三、最近评论-格子"><a href="#三、最近评论-格子" class="headerlink" title="三、最近评论 格子"></a>三、最近评论 格子</h4><p>显示几条最近的评论</p>
+<li><p>提出一个集成LLM和图结构数据的框架</p>
+<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733452387000.png" alt="1733452387000"></p>
 <ul>
-<li>评论人昵称</li>
-<li>评论人头像</li>
-<li>评论时间</li>
-<li>评论内容</li>
-</ul>
-<h4 id="四、标签目录-格子"><a href="#四、标签目录-格子" class="headerlink" title="四、标签目录 格子"></a>四、标签目录 格子</h4><ul>
-<li>显示所有的标签，点击可跳转</li>
-<li>查看更多按钮，跳转到标签页面</li>
-</ul>
-<h4 id="五、公告-格子"><a href="#五、公告-格子" class="headerlink" title="五、公告 格子"></a>五、公告 格子</h4><p>显示公告</p>
-<h4 id="六、网站信息-格子"><a href="#六、网站信息-格子" class="headerlink" title="六、网站信息 格子"></a>六、网站信息 格子</h4><p>显示网站信息</p>
-<ul>
-<li>运行时间</li>
-<li>总访问量</li>
-</ul>
-<h4 id="七、评论区"><a href="#七、评论区" class="headerlink" title="七、评论区"></a>七、评论区</h4><ul>
-<li>输入框</li>
-<li>评论按钮</li>
-<li>显示所有评论，回复的评论向内缩进</li>
-<li>每条评论显示评论人昵称、时间、内容和回复按钮，点击后显示回复框</li>
-<li>评论成功右上角弹窗</li>
-</ul>
-<h4 id="八、说说格子"><a href="#八、说说格子" class="headerlink" title="八、说说格子"></a>八、说说格子</h4><ul>
-<li>左上角显示 说说创建人昵称、时间、评论数</li>
-<li>接下来纯文本形式显示全部文字内容</li>
-<li>显示图片缩略，点击看大图</li>
-</ul>
-<h3 id="管理页面"><a href="#管理页面" class="headerlink" title="管理页面"></a>管理页面</h3><h4 id="一、登录页面"><a href="#一、登录页面" class="headerlink" title="一、登录页面"></a>一、登录页面</h4><p>显示账号密码框，要求登录</p>
-<h4 id="二、页面形式"><a href="#二、页面形式" class="headerlink" title="二、页面形式"></a>二、页面形式</h4><ol>
-<li>左侧一个Sider导航栏，导航栏内容和跳转链接来自后端传入</li>
-<li>上面一个Header<ul>
-<li>左侧固定显示侧边栏收起按钮、可点击的页面路径</li>
-<li>右侧固定显示全屏按钮和个人头像，点击头像时二次选择用户中心或登出选项</li>
-<li>下面是一个打开过的页面标签栏，点击可跳转，有关闭按钮，右侧有全部关闭按钮</li>
+<li><strong>手工提示 Manual Prompt</strong>：生成图的图描述语言GDL，将用户查询的query与GDL结合起来形成LLM的输入</li>
+<li><strong>自提示 Self Prompt</strong>：LLM推理过程中的中间输出反馈回输入，如图的上下文解释、图格式描述</li>
 </ul>
 </li>
-<li>根据选择的导航显示页面内容</li>
+<li><p>建立评判基准</p>
+<ul>
+<li>结构理解任务<ul>
+<li>Graph Size Detection</li>
+<li>Degree Detection</li>
+<li>Edge Detection</li>
+<li>Attribute Retrieval</li>
+<li>Diameter Computing</li>
+<li>Clustering Coefficient Computing 聚类系数计算</li>
+</ul>
+</li>
+<li>语义理解任务<ul>
+<li>KG QA</li>
+<li>GQL Generation</li>
+<li>Node Classfication</li>
+<li>Graph Classfication</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对各种提示进行实验</p>
+<ul>
+<li><p>结构理解任务-引文网络 obgn-arxiv、Aminer</p>
+<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733450824433.png" alt="结构理解任务实验结果"></p>
+<ul>
+<li>输入设计对结果有重大影响</li>
+<li>角色提示通常可以提高性能</li>
+<li>示例对图理解有影响，样本和零样本在不同小问题上各有优劣</li>
+<li>外部知识放在图输入之前性能更好</li>
+</ul>
+</li>
+<li><p>语义理解任务-知识图谱问答 Wiki、MetaQA</p>
+<ul>
+<li><p>KGQA和GQL生成</p>
+<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733451064493.png" alt="1733451064493"></p>
+<p>SOTA更好，但是LLM也不赖</p>
+<p>KGQA上zero-shot-cot+graph+change-order普遍更好</p>
+<p>GQL生成上one-shot比zero-shot好</p>
+</li>
+<li><p>节点分类任务</p>
+<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733451371183.png" alt="1733451371183"></p>
+<p>2-hop上下文比1-hop更好</p>
+<p>COT对这项任务不那么奏效</p>
+</li>
+<li><p>图分类任务</p>
+<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733451558144.png" alt="1733451558144"></p>
+<p>self-prompt的自格式解释和自总结很有效</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>相关工作和结论</p>
+<p>理解图的两个路径：与图神经网络GNN、GCN结合，加入注意力机制GAT</p>
+<p>未来可以侧重改进图形结构信息编码</p>
+</li>
+</ul>
+<h2 id="2-2023-ASE-AutoDebloater"><a href="#2-2023-ASE-AutoDebloater" class="headerlink" title="2. 2023 ASE AutoDebloater"></a>2. 2023 ASE AutoDebloater</h2><p>论文题目：<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/10298508">AutoDebloater: Automated Android App Debloating</a></p>
+<p><strong>背景</strong>：Android程序越做越大，对特定用户而言很多功能特征是不需要的，而这些不需要的功能既可能存在安全漏洞，也占用了大量系统资源</p>
+<p><strong>目标</strong>：Remove unnecessary features from Android applications</p>
+<p><strong>方法</strong>：</p>
+<ul>
+<li><p>用StoryDistiller生成App的活动转换图ATG</p>
+<ul>
+<li><p>StoryDistiller输入一个App，输出ATG和每个Activity的截图</p>
+<blockquote>
+<p>An activity is an application component that provides a screen with which users can interact to do something.</p>
+</blockquote>
+</li>
+<li><p>结合静态活动转换和动态活动转换（抓取组件间通信ICC数据）</p>
+</li>
+</ul>
+</li>
+<li><p>识别要删除的活动方法</p>
+<ul>
+<li>识别用户想要删除活动类中的方法</li>
+<li>前向切片识别CG中仅受这些方法影响的其他相关方法</li>
+</ul>
+</li>
+<li><p>采用Soot框架消除待删除方法</p>
+<ul>
+<li>不直接删除函数，而是将函数体清空，返回值设null或0</li>
+<li>保留了各种依赖和调用关系，确保编译通过</li>
+</ul>
+</li>
+</ul>
+<p><strong>验证</strong>：</p>
+<ol>
+<li>user study<ul>
+<li>benchmark：<ul>
+<li>稳定性 stability，不崩溃</li>
+<li>总体满意度 overall satisfaction，Debloating效果</li>
+</ul>
+</li>
+<li>结论：用户满意</li>
+</ul>
+</li>
+<li>性能分析<ul>
+<li>StoryDistiller比较慢，采用缓存方法</li>
+<li>Debloating的时间少于 20 秒</li>
+</ul>
+</li>
 </ol>
-<h2 id="后端需求"><a href="#后端需求" class="headerlink" title="后端需求"></a>后端需求</h2>
+<h2 id="3-2024-ICSE-MiniMon"><a href="#3-2024-ICSE-MiniMon" class="headerlink" title="3. 2024 ICSE MiniMon"></a>3. 2024 ICSE MiniMon</h2><p>论文题目：<a target="_blank" rel="noopener" href="https://dl.acm.org/doi/10.1145/3597503.3639113">MiniMon: Minimizing Android Applications with Intelligent Monitoring-Based Debloating</a></p>
+<p>与第2篇工作AutoDebloater是同一个作者，两篇文章针对的问题背景是一致的，但是这篇不再依赖用户自己选择所需功能，而是通过监控用户的使用记录，从而更自动化的挖掘用户意图并Debloate App。同时Debloating的粒度从Activity变成了method</p>
+<p><strong>方法</strong>：</p>
+<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733463210740.png" alt="1733463210740"></p>
+<ol>
+<li><p>静态插桩监视执行情况</p>
+<p>使用Soot的BodyTransformer类对应用程序进行静态插桩，在method的第一个指令前插入 方法签名、时间戳、应用程序名称</p>
+</li>
+<li><p>静态分析获取调用图Call Graph，CG</p>
+<p>使用FlowDroid执行静态分析，生命周期方法和回调作为入口点</p>
+<ul>
+<li>遍历显式方法调用</li>
+<li>检测反射等隐式方法调用，识别所有传播的字符串常量</li>
+<li>使用ICCBot检测组件间通信ICC</li>
+<li>异步任务</li>
+</ul>
+</li>
+<li><p>MethodGeneralizer：给定CG和监控期间记录的methods，使用无监督技术识别所需功能特征的未见method</p>
+<ul>
+<li><p>基于程序分析的技术</p>
+<ul>
+<li>前向切片 Forward Slicing</li>
+<li>反向切片 Backward Slicing</li>
+<li>双向切片 BiDirection</li>
+</ul>
+</li>
+<li><p>基于图聚类的技术</p>
+<ul>
+<li>LCD，Louvain community detection algorithm</li>
+<li>LPA，Label propagation algorithm</li>
+</ul>
+</li>
+<li><p>基于图嵌入的技术</p>
+<ul>
+<li><p>方法1</p>
+<ol>
+<li><p>将图结构转换为序列，DFS生成静态执行路径</p>
+</li>
+<li><p>为每个序列的每种方法生成嵌入</p>
+<ul>
+<li><p>LSTM</p>
+</li>
+<li><p>One-Hot</p>
+</li>
+<li><p>IDF，Inverse Document Frequency 逆文档频率</p>
+<blockquote>
+<p>The intuition is if a method is commonly executed in the<br>static execution paths, then it should have a lower weight in the<br>embedding.</p>
+</blockquote>
+<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733464769531.png" alt="IDF计算公式"></p>
+</li>
+<li><p>IDF-POS，添加位置权重</p>
+</li>
+</ul>
+</li>
+<li><p>跨序列聚合（使用max-pooling）每种方法的嵌入，得到方法的最终嵌入</p>
+</li>
+</ol>
+</li>
+<li><p>方法2：Node2Vec</p>
+<p>得到向量表示后通过余弦相似度识别未见方法</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>删除无关方法</p>
+<ul>
+<li>同上一篇工作</li>
+<li>在删除的方法函数体中通知该方法已被删除</li>
+</ul>
+</li>
+</ol>
+<p><strong>测试基准</strong>：</p>
+<ul>
+<li>启发式方法：将同一活动中的小部件视为一组相似的用户行为</li>
+<li>使用SARA记录测试用例</li>
+</ul>
+<p><strong>评估指标</strong>：</p>
+<ul>
+<li>召回率 Recall</li>
+<li>Debloating Rate</li>
+<li>加权调和平均值，赋予召回率更大的权重</li>
+</ul>
+<h2 id="4-2023-资源独立工作流可满足性的最小增量模式回溯"><a href="#4-2023-资源独立工作流可满足性的最小增量模式回溯" class="headerlink" title="4. 2023 资源独立工作流可满足性的最小增量模式回溯"></a>4. 2023 资源独立工作流可满足性的最小增量模式回溯</h2><p>论文题目：<a target="_blank" rel="noopener" href="https://www.jos.org.cn/jos/article/abstract/6682?st=article_issue">资源独立工作流可满足性的最小增量模式回溯</a></p>
+<p>这篇文章针对高资源配比（资源数n显著大于步骤数k）的工作流可满足性问题（Workflow Satisfiability Problem, WSP)，在资源独立性约束下，改进原有的SOTA方法增量模式回溯法（Incremental Pattern Backtracking, IPB），提出最小增量模式回溯法MIPB，理论上降低了时间复杂度，并进行对比实验检验了算法运行时空性能</p>
+<p>原理：子模式具有唯一增块，增块形成于父子模式的原子性差异，即二者只相差一个增元。论文利用这一最小差异，在计算模式完全指派图时，将增块的候选邻点验证代价降至O(1)，而邻点搜索范围的实际规模可在O(n)量级内极大收缩。据此完全指派图的增量计算时间从O(kn)降至O(n)</p>
+<p><img src="/blog/../../../StudyCase/20241206/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/1733408853315.png" alt="MIPB算法"></p>
+<p>这篇文章全是各种定义和证明，感觉我好像缺少了不止一点前置知识，有种在看天书的感觉，除了整体脉络根本没看懂。。。。</p>
+
                 
             </div>
             <hr/>
@@ -554,7 +599,7 @@ Header导航栏
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://lixutian.github.io/blog/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/">http://lixutian.github.io/blog/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/</a>
+                    <a href="http://lixutian.github.io/blog/blog/2024/12/06/lun-wen-yue-du-appdebloating/">http://lixutian.github.io/blog/blog/2024/12/06/lun-wen-yue-du-appdebloating/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -592,8 +637,36 @@ Header导航栏
                     
                         <div class="article-tag">
                             
-                                <a href="/blog/tags/Aurora-Blog/">
-                                    <span class="chip bg-color">Aurora Blog</span>
+                                <a href="/blog/tags/LLM/">
+                                    <span class="chip bg-color">LLM</span>
+                                </a>
+                            
+                                <a href="/blog/tags/Graph/">
+                                    <span class="chip bg-color">Graph</span>
+                                </a>
+                            
+                                <a href="/blog/tags/Android/">
+                                    <span class="chip bg-color">Android</span>
+                                </a>
+                            
+                                <a href="/blog/tags/Debloating/">
+                                    <span class="chip bg-color">Debloating</span>
+                                </a>
+                            
+                                <a href="/blog/tags/%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">静态分析</span>
+                                </a>
+                            
+                                <a href="/blog/tags/%E7%A8%8B%E5%BA%8F%E5%88%87%E7%89%87/">
+                                    <span class="chip bg-color">程序切片</span>
+                                </a>
+                            
+                                <a href="/blog/tags/%E5%9B%BE%E8%81%9A%E7%B1%BB/">
+                                    <span class="chip bg-color">图聚类</span>
+                                </a>
+                            
+                                <a href="/blog/tags/%E5%9B%BE%E5%B5%8C%E5%85%A5/">
+                                    <span class="chip bg-color">图嵌入</span>
                                 </a>
                             
                         </div>
@@ -672,9 +745,92 @@ Header导航栏
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/blog/2024/12/06/lun-wen-yue-du-appdebloating/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/11.jpg" class="responsive-img" alt="论文阅读">
+                        
+                        <span class="card-title">论文阅读</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-12-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
+                            <a href="/blog/categories/%E5%AD%A6%E4%B9%A0/%E8%AE%BA%E6%96%87/" class="post-category">
+                                    论文
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/LLM/">
+                        <span class="chip bg-color">LLM</span>
+                    </a>
+                    
+                    <a href="/blog/tags/Graph/">
+                        <span class="chip bg-color">Graph</span>
+                    </a>
+                    
+                    <a href="/blog/tags/Android/">
+                        <span class="chip bg-color">Android</span>
+                    </a>
+                    
+                    <a href="/blog/tags/Debloating/">
+                        <span class="chip bg-color">Debloating</span>
+                    </a>
+                    
+                    <a href="/blog/tags/%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">静态分析</span>
+                    </a>
+                    
+                    <a href="/blog/tags/%E7%A8%8B%E5%BA%8F%E5%88%87%E7%89%87/">
+                        <span class="chip bg-color">程序切片</span>
+                    </a>
+                    
+                    <a href="/blog/tags/%E5%9B%BE%E8%81%9A%E7%B1%BB/">
+                        <span class="chip bg-color">图聚类</span>
+                    </a>
+                    
+                    <a href="/blog/tags/%E5%9B%BE%E5%B5%8C%E5%85%A5/">
+                        <span class="chip bg-color">图嵌入</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/blog/2024/11/30/aurora-blog-hou-duan-xu-qiu-xia/">
                     <div class="card-image">
@@ -692,9 +848,9 @@ Header导航栏
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-11-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -712,55 +868,6 @@ Header导航栏
                     
                     <a href="/blog/tags/Aurora-Blog/">
                         <span class="chip bg-color">Aurora Blog</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/blog/2024/11/20/mo-gu-bo-ke-sou-suo-dai-ma-mo-ban/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/blog/medias/featureimages/8.jpg" class="responsive-img" alt="蘑菇博客搜索代码模板">
-                        
-                        <span class="card-title">蘑菇博客搜索代码模板</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-20
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/blog/categories/%E6%89%93%E9%BB%91%E5%B7%A5/" class="post-category">
-                                    打黑工
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/blog/tags/Mogu-Blog/">
-                        <span class="chip bg-color">Mogu Blog</span>
                     </a>
                     
                 </div>
