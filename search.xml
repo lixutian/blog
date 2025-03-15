@@ -4,6 +4,87 @@
   
     
     <entry>
+      <title>论文阅读-ServiceDecomposition</title>
+      <link href="/blog/2025/03/15/lun-wen-yue-du-servicedecomposition/"/>
+      <url>/blog/2025/03/15/lun-wen-yue-du-servicedecomposition/</url>
+      
+        <content type="html"><![CDATA[<ul><li><p>这周一去行数通交流，关于课题做的事情达成了共识，不是抽“代码模板”，而是提取“低代码模板”</p><ul><li>与其说是找共性的“类”——“代码模板”，更像是找单独的功能模块“实例”——“低代码模板”</li></ul></li><li><p>我让把新的任务描述给了GPT，让他帮我找点关键词去ACM DL上搜一搜</p><ul><li>服务分解 Service Decomposition</li></ul></li><li><p>还真找到了几篇论文</p><ul><li><a href="https://dl.acm.org/doi/10.1016/j.infsof.2024.107590">Migration of monolithic systems to microservices: A systematic mapping study</a></li><li><a href="https://dl.acm.org/doi/10.1145/3483899.3483908">Microservice decomposition and evaluation using dependency graph and silhouette coefficient</a></li><li><a href="https://dl.acm.org/doi/10.1145/3675417.3675539">A Web Service Recommendation Method that Integrates Implicit Feedback Information and Decomposition Machine Model</a></li><li><a href="https://dl.acm.org/doi/10.1145/3457913.3457939">A Feature Table approach to decomposing monolithic applications into microservices</a></li><li><a href="https://www.researchgate.net/publication/307873263_Service_Cutter_A_Systematic_Approach_to_Service_Decomposition">Service Cutter: A Systematic Approach to Service Decomposition</a></li><li><a href="https://dl.acm.org/doi/10.1145/3634814.3634839">AI-based Quality-driven Decomposition Tool for Monolith to Microservice Migration</a></li></ul></li><li><p>大概读了一下顺便画了个思维导图当笔记了</p></li></ul><p><img src="/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/sition/ServiceDecomposition.png" alt="Service Decomposition"></p><ul><li>看来图聚类技术还是比较重要的，这几天应该着手学习一下，但是好像和老师让在毕设里实现的功能又不太一样了。。。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+          <category> 论文 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 软件工程 </tag>
+            
+            <tag> 服务分解 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>讲座-Database</title>
+      <link href="/blog/2025/03/13/jiang-zuo-database/"/>
+      <url>/blog/2025/03/13/jiang-zuo-database/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Technology-Challenges-and-Research-Opportunities-in-Database-System"><a href="#Technology-Challenges-and-Research-Opportunities-in-Database-System" class="headerlink" title="Technology Challenges and Research Opportunities in Database System"></a>Technology Challenges and Research Opportunities in Database System</h3><ul><li>By Yannis Ioannids</li><li>In 2025-03-13</li><li>At ZHONGGUANYUAN GLOBAL VILLAGE, PKU</li></ul><h4 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h4><p>Database Systems have existed for six decades and have had significant impact on how private and public organizations manage their data in the context of industrial, societal, and scientific activities. The relational model and the SQL language are the global standards for accessing databases and have served as the foundations for advancing the field through the years, creating a multi-billion industry around the world. <strong>With the current advances in several other technological areas, notably, new general and specialized hardware, high-performance and high-throughput (cloud) computing, and machine learning &#x2F; AI &#x2F; LLMs, database technology is in front of yet another revolution of its own, addressing numerous new challenges, pointing to new directions for industrial advances, and opening new opportunities for exciting research.</strong> In this presentation, I will give a quick tour of the status of database systems and then elaborate on some relevant research and technological challenges that could possibly lead to the next breakthroughs in the field. Particular attention will be given to applications (e.g., data science, data analytics, and edge computing), where User-Defined Functions (UDFs) are used within relational database queries in SQL. In such contexts, I will give some highlights of YeSQL, a language and system developed with colleagues and members of my team, which is effectively addressing the impedance mismatch that exists between UDF evaluation and relational operator processing, achieving significant speedups of up to 68x in common, practical use cases compared to earlier approaches and alternative implementation choices.</p><h4 id="Technological-Challenges"><a href="#Technological-Challenges" class="headerlink" title="Technological Challenges"></a>Technological Challenges</h4><h5 id="1-AI-ML-LLM"><a href="#1-AI-ML-LLM" class="headerlink" title="1. AI &#x3D; ML + LLM"></a>1. AI &#x3D; ML + LLM</h5><ol><li><p>Query Optimization</p><p><img src="/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/151291.png" alt="1742049151291"></p></li><li><p>Admission Control</p><p><img src="/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/169597.png" alt="1742049169597"></p></li><li><p>LLM for User Interface Enhanced</p><p><img src="/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/179920.png" alt="1742049179920"></p></li><li><p>Database Retrieval Enhanced LLMs</p></li></ol><ul><li>RAG<ul><li>Embedding</li><li>Top K relevant documents</li></ul></li></ul><h5 id="2-Cloud"><a href="#2-Cloud" class="headerlink" title="2. Cloud"></a>2. Cloud</h5><ol><li>Privacy-based Processing of Shared Sensitive Data</li></ol><ul><li>MIP Federated Learning</li></ul><ol start="2"><li>New Architectures fir User-Defined Functions (UDFs)</li></ol><ul><li><p>Challenges: Performance</p><p><img src="/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/039634.png" alt="1742049039634"></p></li><li><p>Their works: YeSQL</p></li></ul><h5 id="3-Hardware"><a href="#3-Hardware" class="headerlink" title="3. Hardware"></a>3. Hardware</h5><ol><li>Hardware Acceleratoes</li></ol><ul><li>GPU</li><li>TPU</li><li>… parallel</li></ul><blockquote><p>CPU is the control plane, Accelerators are the data plane</p></blockquote><ol start="2"><li>New Memory for Buffer Management and Query Processing</li></ol><ul><li>Two-Tier Memory</li><li>Processing in Memory, PIM</li></ul><h4 id="Society-Challenges"><a href="#Society-Challenges" class="headerlink" title="Society Challenges"></a>Society Challenges</h4><h5 id="4-Energy-Consumption"><a href="#4-Energy-Consumption" class="headerlink" title="4. Energy Consumption"></a>4. Energy Consumption</h5><p>​(SUST) New Everything for Sustainability</p><ol><li>Energy-Efficient Hardware&#x2F; Sustainability of Computation<ul><li>Scope1: Direct</li><li>Scope2: Query processing and optimization</li><li>Scope3: Data application operating</li></ul></li></ol><h4 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h4><ol><li><p>Why execute SQL in translation rather than compiling?</p><p>① Various Situation 一百条数据和十万条数据处理方式不同<br>② Various Hardware platform 在CPU执行和在FPGA执行不同</p></li></ol><h4 id="官方总结"><a href="#官方总结" class="headerlink" title="官方总结"></a>官方总结</h4><ul><li>原文链接：<a href="http://mp.weixin.qq.com/s/_HNqkW7HxZpW11DxSGqlhA">国际计算机协会主席Yannis Ioannidis教授受北京大学 “大学堂”顶尖学者计划邀请作学术报告</a></li></ul><p>Ioannidis教授首先简要回顾了数据库系统的发展历程和基础架构，并指出了近年来数据库系统正在发生的变革。第一，人工智能技术（如机器学习方法和大语言模型）逐渐在数据库系统中得到应用。第二，大量数据库系统已经从本地环境迁移到云计算环境。第三，数据库系统运行依赖的通用和专用硬件也在发生变化。Ioannidis教授认为，这三点变化为数据库系统的产业发展和学术研究带来了新的机遇和挑战。</p><p>针对人工智能技术与数据库系统的融合，Ioannidis教授分别从三个层次指明了方向。首先，在数据库系统内部，查询优化和准入控制等经典问题传统上通过数学建模和启发式方法去解决，而机器学习方法已经可以超越这些传统方法。其次，大语言模型的出现，使得用户可以以自然语言与数据库系统交互，大大降低了用户的学习成本。最后，数据库系统也可以通过检索增强生成的方式进一步扩展大语言模型的知识边界。</p><p>面向云计算环境带来的新挑战，Ioannidis教授分别从敏感数据保护和用户定义函数两个视角展开介绍了其研究工作。Ioannidis教授以罕见病数据在医院间共享的场景为例，介绍了其团队在联邦学习方法上的实践。针对云计算环境计算与存储解耦的体系结构变化，Ioannidis教授团队提出的YeSQL将用户定义函数分载到存储侧，从而将性能提升最多68倍。</p><p>在硬件变革方面，Ioannidis教授认为异构加速器的涌现既是对数据库系统查询优化的巨大挑战，也是研究者的新机遇。同时，新型内存和存储介质的出现，使得向内存和存储侧分载计算成为一个值得探索的方向。</p><p>最后，Ioannidis教授指出可持续发展也是数据库系统研究的重要目标，未来的数据库系统应当使用更少的能源和硬件从而减少温室气体的排放。</p><p>在互动环节，与会师生与Ioannidis教授围绕讲座内容积极互动，Ioannidis教授热情地解答了相关问题，并鼓励年轻学者积极投身数据库系统的相关研究。活动现场座无虚席，气氛热烈。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+          <category> 讲座 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>论文PDF下载重命名脚本</title>
+      <link href="/blog/2025/03/12/lun-wen-pdf-xia-zai-chong-ming-ming-jiao-ben/"/>
+      <url>/blog/2025/03/12/lun-wen-pdf-xia-zai-chong-ming-ming-jiao-ben/</url>
+      
+        <content type="html"><![CDATA[<h3 id="2025-03-12の流水账日记"><a href="#2025-03-12の流水账日记" class="headerlink" title="2025-03-12の流水账日记"></a>2025-03-12の流水账日记</h3><p>今天莫名不是很想写代码，就做了一些乱七八糟的</p><ul><li>整理了一下目前的进度，把草稿纸全扔掉了，写进了思维导图</li><li>看了看文献翻译的要求</li><li>这周一去行数通交流，关于课题做的事情达成了共识，不是抽“代码模板”，而是提取“低代码模板”<ul><li>与其说是找共性的“类”——“代码模板”，更像是找单独的功能模块“实例”——“低代码模板”</li><li>我让把新的任务描述给了GPT，让他帮我找点关键词去ACM DL上搜一搜</li><li>下载的PDF文件名不和我意，遂怒写<a href="https://github.com/a496263365/paper-pdf-download-helper">两个油猴脚本</a>来重命名Arxiv和ACM DL的PDF</li></ul></li></ul><h3 id="论文PDF下载重命名脚本"><a href="#论文PDF下载重命名脚本" class="headerlink" title="论文PDF下载重命名脚本"></a>论文PDF下载重命名脚本</h3><ul><li>已经放到<a href="https://github.com/a496263365/paper-pdf-download-helper">GitHub</a>上，项目名paper-pdf-download-helper</li></ul><h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><p><img src="/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/7575145.png" alt="1742047575145"></p><p><img src="/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/7682021.png" alt="1742047682021"></p><p><img src="/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/7645687.png" alt="1742047645687"></p><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><ul><li>原理很简单，抄了两个已经有的油猴脚本（油叉上可以搜到），两个加到一起就成我的了，嘿嘿<ul><li>一个是下载arxiv的重命名pdf，但是按钮丑到爆，风格和页面不搭</li><li>另一个是arxiv跳转到一个野鸡文献搜索网站，不知道何意，但是按钮风格完美融入页面</li></ul></li></ul><ol><li>获取文献标题</li><li>获取原pdf下载按钮，读取其url</li><li>fetch原本url中的pdf文件，然后将文件名改成文献标题，生成新的下载链接</li><li>把新的下载链接包装成与页面风格匹配的按钮加到网页中</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>论文阅读-AppDebloating</title>
       <link href="/blog/2024/12/06/lun-wen-yue-du-appdebloating/"/>
       <url>/blog/2024/12/06/lun-wen-yue-du-appdebloating/</url>
@@ -22,21 +103,9 @@
       
         <tags>
             
-            <tag> LLM </tag>
+            <tag> 软件工程 </tag>
             
-            <tag> Graph </tag>
-            
-            <tag> Android </tag>
-            
-            <tag> Debloating </tag>
-            
-            <tag> 静态分析 </tag>
-            
-            <tag> 程序切片 </tag>
-            
-            <tag> 图聚类 </tag>
-            
-            <tag> 图嵌入 </tag>
+            <tag> 应用消肿 </tag>
             
         </tags>
       
@@ -54,7 +123,7 @@
       
       <categories>
           
-          <category> 打黑工 </category>
+          <category> 工程 </category>
           
       </categories>
       
@@ -74,12 +143,12 @@
       <link href="/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/"/>
       <url>/blog/2024/11/27/aurora-blog-qian-duan-qian-tai-xu-qiu/</url>
       
-        <content type="html"><![CDATA[<h2 id="前端需求"><a href="#前端需求" class="headerlink" title="前端需求"></a>前端需求</h2><h3 id="展示页面"><a href="#展示页面" class="headerlink" title="展示页面"></a>展示页面</h3><h4 id="一、页面形式"><a href="#一、页面形式" class="headerlink" title="一、页面形式"></a>一、页面形式</h4><ol><li>Header导航栏<ul><li>显示LOGO</li><li>有首页、说说、关于、归档、标签、留言、友链、相册等导航按钮，点击后影响页面显示内容</li><li>搜索按钮</li><li>选择语言</li><li>用户头像或登录按钮<ul><li>未登录时显示登录按钮，点击后显示登录弹窗，要求输入账号密码，可选择注册</li><li>注册页面要求提供账号密码、邮箱及其验证码</li><li>登录后显示头像，点击头像时二次选择用户中心或登出选项</li></ul></li><li>色彩主题设置按钮</li></ul></li><li>Footer页脚显示版权信息和备案号</li><li>中间显示内容根据导航栏的选择决定</li><li>除首页外每个页面左上角显示当前路径或标题</li><li>左下角有个小史莱姆说废话</li><li>右下角有一个选项标签，下滑动作时收到右侧，不在顶部时显示页面进度和回到顶部按钮<ul><li>回到顶部，点击后回到顶部</li><li>搜索按钮，点击后弹出**[搜索页面]**对话框</li><li>首页导航按钮，点击后回到首页</li></ul></li><li>用户中心Sider侧边栏<ul><li>头像</li><li>可更改的昵称、网址、描述输入框</li><li>不可更改的邮箱输入框，右面有单独修改按钮<ul><li>点击后弹出邮箱修改弹窗，要求输入邮箱和验证码</li></ul></li><li>订阅开关</li><li>修改按钮</li></ul></li><li>右上角的弹窗提醒</li><li>**[搜索页面]**模态弹窗</li></ol><h4 id="二、首页"><a href="#二、首页" class="headerlink" title="二、首页"></a>二、首页</h4><ol><li>最上面一篇置顶**[文章 格子]**占一排</li><li>接下来两篇推荐**[文章 格子]**放一排</li><li>最后是一个布局<ul><li>左侧是文章列表<ul><li>显示所有标签和全部选项，点击后以此进行筛选</li><li>下面有分页码信息</li><li>一系列**[文章 格子]**<ul><li>标题</li><li>部分内容</li><li>封面图片</li></ul></li></ul></li><li>右侧是一些信息<ul><li><strong>[博客信息介绍 格子]</strong></li><li><strong>[最近评论 格子]</strong></li><li><strong>[标签目录 格子]</strong></li><li><strong>[公告 格子]</strong></li><li><strong>[网站信息 格子]</strong></li></ul></li></ul></li></ol><h4 id="三、说说页面"><a href="#三、说说页面" class="headerlink" title="三、说说页面"></a>三、说说页面</h4><ol><li>左侧是说说列表<ul><li>下面有分页码信息</li><li><strong>[说说 格子]</strong></li></ul></li><li>右侧有一个**[博客信息介绍 格子]**</li></ol><h4 id="四、关于页面"><a href="#四、关于页面" class="headerlink" title="四、关于页面"></a>四、关于页面</h4><p>就是一篇叫做“关于”的文章详情页面，不显示显示上一篇和下一篇而已</p><h4 id="五、归档页面"><a href="#五、归档页面" class="headerlink" title="五、归档页面"></a>五、归档页面</h4><p>显示博客文章的时间轴</p><ul><li>中间一根轴，每个月一个，分页</li><li>其中一侧是日期</li><li>另一侧是不显示封面的**[文章格子]**，点击可查看对应文章</li></ul><h4 id="六、标签页面"><a href="#六、标签页面" class="headerlink" title="六、标签页面"></a>六、标签页面</h4><p>显示所有标签和每个标签下对应的文章数量，点击可跳转</p><h4 id="七、留言页面"><a href="#七、留言页面" class="headerlink" title="七、留言页面"></a>七、留言页面</h4><p>就是一篇叫做“留言”的文章详情页面，不显示显示上一篇和下一篇而已</p><h4 id="八、友链页面"><a href="#八、友链页面" class="headerlink" title="八、友链页面"></a>八、友链页面</h4><p>差不多是一篇叫做“友链”的文章详情页面，不显示显示上一篇和下一篇而已</p><p>额外显示友链信息，每个友链显示头像、名称、介绍，点击可跳转友链链接</p><h4 id="九、相册页面"><a href="#九、相册页面" class="headerlink" title="九、相册页面"></a>九、相册页面</h4><ul><li><p>点中相册导航时显示相册的二级菜单，再次点击跳转</p></li><li><p>显示该相册内的所有照片，点击看大图</p></li></ul><h4 id="十、文章详情页面"><a href="#十、文章详情页面" class="headerlink" title="十、文章详情页面"></a>十、文章详情页面</h4><ul><li>左侧<ul><li>左上角显示 分类、标签、标题</li><li>左上角接下来显示作者头像、昵称、发布时间、字数统计、预计阅读时间</li><li>以MarkDown形式显示博客内容</li><li>下面显示上一篇和下一篇**[文章 格子]**</li><li><strong>[评论区]</strong></li></ul></li><li>右侧<ul><li><strong>[博客信息介绍 格子]</strong></li><li>文章的Md标题目录</li><li>三个按钮，返回上级、返回顶部、发送66</li></ul></li></ul><h4 id="十一、说说详情页面"><a href="#十一、说说详情页面" class="headerlink" title="十一、说说详情页面"></a>十一、说说详情页面</h4><ul><li>左侧<ul><li><strong>[说说格子]</strong></li><li><strong>[评论区]</strong></li></ul></li><li>右侧<ul><li><strong>[博客信息介绍 格子]</strong></li></ul></li></ul><h4 id="十二、搜索页面"><a href="#十二、搜索页面" class="headerlink" title="十二、搜索页面"></a>十二、搜索页面</h4><ul><li>一个输入框，输入内容后右侧有清空按钮</li><li>未输入内容时下面显示最近搜索结果</li><li>输入内容时实时搜索并显示搜索结果</li><li>鼠标点击搜索结果跳转到对应的**[文章详情页面]**</li><li>被选中的搜索结果外侧高亮标识</li><li>Enter跳转到选中结果的**[文章详情页面]**</li><li>上下键移动选中</li><li>Esc或鼠标点击对话框外侧关闭搜索对话框</li><li>下面显示提示信息和使用的搜索引擎</li></ul><h4 id="十三、404页面"><a href="#十三、404页面" class="headerlink" title="十三、404页面"></a>十三、404页面</h4><h3 id="前端组件"><a href="#前端组件" class="headerlink" title="前端组件"></a>前端组件</h3><h4 id="一、文章-格子"><a href="#一、文章-格子" class="headerlink" title="一、文章 格子"></a>一、文章 格子</h4><ul><li>标题</li><li>部分内容</li><li>点击跳转到文章详情</li><li>显示推荐或置顶属性信息</li></ul><h4 id="二、博客信息介绍-格子"><a href="#二、博客信息介绍-格子" class="headerlink" title="二、博客信息介绍 格子"></a>二、博客信息介绍 格子</h4><ul><li>作者头像</li><li>作者昵称</li><li>个人简介</li><li>个人其他网站链接（如GitHub、Gitee）</li><li>博客信息统计（文章、说说、分类、标签的数量）</li></ul><h4 id="三、最近评论-格子"><a href="#三、最近评论-格子" class="headerlink" title="三、最近评论 格子"></a>三、最近评论 格子</h4><p>显示几条最近的评论</p><ul><li>评论人昵称</li><li>评论人头像</li><li>评论时间</li><li>评论内容</li></ul><h4 id="四、标签目录-格子"><a href="#四、标签目录-格子" class="headerlink" title="四、标签目录 格子"></a>四、标签目录 格子</h4><ul><li>显示所有的标签，点击可跳转</li><li>查看更多按钮，跳转到标签页面</li></ul><h4 id="五、公告-格子"><a href="#五、公告-格子" class="headerlink" title="五、公告 格子"></a>五、公告 格子</h4><p>显示公告</p><h4 id="六、网站信息-格子"><a href="#六、网站信息-格子" class="headerlink" title="六、网站信息 格子"></a>六、网站信息 格子</h4><p>显示网站信息</p><ul><li>运行时间</li><li>总访问量</li></ul><h4 id="七、评论区"><a href="#七、评论区" class="headerlink" title="七、评论区"></a>七、评论区</h4><ul><li>输入框</li><li>评论按钮</li><li>显示所有评论，回复的评论向内缩进</li><li>每条评论显示评论人昵称、时间、内容和回复按钮，点击后显示回复框</li><li>评论成功右上角弹窗</li></ul><h4 id="八、说说格子"><a href="#八、说说格子" class="headerlink" title="八、说说格子"></a>八、说说格子</h4><ul><li>左上角显示 说说创建人昵称、时间、评论数</li><li>接下来纯文本形式显示全部文字内容</li><li>显示图片缩略，点击看大图</li></ul><h3 id="管理页面"><a href="#管理页面" class="headerlink" title="管理页面"></a>管理页面</h3><h4 id="一、登录页面"><a href="#一、登录页面" class="headerlink" title="一、登录页面"></a>一、登录页面</h4><p>显示账号密码框，要求登录</p><h4 id="二、页面形式"><a href="#二、页面形式" class="headerlink" title="二、页面形式"></a>二、页面形式</h4><ol><li>左侧一个Sider导航栏，导航栏内容和跳转链接来自后端传入</li><li>上面一个Header<ul><li>左侧固定显示侧边栏收起按钮、可点击的页面路径</li><li>右侧固定显示全屏按钮和个人头像，点击头像时二次选择用户中心或登出选项</li><li>下面是一个打开过的页面标签栏，点击可跳转，有关闭按钮，右侧有全部关闭按钮</li></ul></li><li>根据选择的导航显示页面内容</li></ol><h2 id="后端需求"><a href="#后端需求" class="headerlink" title="后端需求"></a>后端需求</h2>]]></content>
+        <content type="html"><![CDATA[<h2 id="前端需求"><a href="#前端需求" class="headerlink" title="前端需求"></a>前端需求</h2><h3 id="展示页面"><a href="#展示页面" class="headerlink" title="展示页面"></a>展示页面</h3><h4 id="一、页面形式"><a href="#一、页面形式" class="headerlink" title="一、页面形式"></a>一、页面形式</h4><ol><li>Header导航栏<ul><li>显示LOGO</li><li>有首页、说说、关于、归档、标签、留言、友链、相册等导航按钮，点击后影响页面显示内容</li><li>搜索按钮</li><li>选择语言</li><li>用户头像或登录按钮<ul><li>未登录时显示登录按钮，点击后显示登录弹窗，要求输入账号密码，可选择注册</li><li>注册页面要求提供账号密码、邮箱及其验证码</li><li>登录后显示头像，点击头像时二次选择用户中心或登出选项</li></ul></li><li>色彩主题设置按钮</li></ul></li><li>Footer页脚显示版权信息和备案号</li><li>中间显示内容根据导航栏的选择决定</li><li>除首页外每个页面左上角显示当前路径或标题</li><li>左下角有个小史莱姆说废话</li><li>右下角有一个选项标签，下滑动作时收到右侧，不在顶部时显示页面进度和回到顶部按钮<ul><li>回到顶部，点击后回到顶部</li><li>搜索按钮，点击后弹出**[搜索页面]**对话框</li><li>首页导航按钮，点击后回到首页</li></ul></li><li>用户中心Sider侧边栏<ul><li>头像</li><li>可更改的昵称、网址、描述输入框</li><li>不可更改的邮箱输入框，右面有单独修改按钮<ul><li>点击后弹出邮箱修改弹窗，要求输入邮箱和验证码</li></ul></li><li>订阅开关</li><li>修改按钮</li></ul></li><li>右上角的弹窗提醒</li><li>**[搜索页面]**模态弹窗</li></ol><h4 id="二、首页"><a href="#二、首页" class="headerlink" title="二、首页"></a>二、首页</h4><ol><li>最上面一篇置顶**[文章 格子]**占一排</li><li>接下来两篇推荐**[文章 格子]**放一排</li><li>最后是一个布局<ul><li>左侧是文章列表<ul><li>显示所有标签和全部选项，点击后以此进行筛选</li><li>下面有分页码信息</li><li>一系列**[文章 格子]**<ul><li>标题</li><li>部分内容</li><li>封面图片</li></ul></li></ul></li><li>右侧是一些信息<ul><li><strong>[博客信息介绍 格子]</strong></li><li><strong>[最近评论 格子]</strong></li><li><strong>[标签目录 格子]</strong></li><li><strong>[公告 格子]</strong></li><li><strong>[网站信息 格子]</strong></li></ul></li></ul></li></ol><h4 id="三、说说页面"><a href="#三、说说页面" class="headerlink" title="三、说说页面"></a>三、说说页面</h4><ol><li>左侧是说说列表<ul><li>下面有分页码信息</li><li><strong>[说说 格子]</strong></li></ul></li><li>右侧有一个**[博客信息介绍 格子]**</li></ol><h4 id="四、关于页面"><a href="#四、关于页面" class="headerlink" title="四、关于页面"></a>四、关于页面</h4><p>就是一篇叫做“关于”的文章详情页面，不显示显示上一篇和下一篇而已</p><h4 id="五、归档页面"><a href="#五、归档页面" class="headerlink" title="五、归档页面"></a>五、归档页面</h4><p>显示博客文章的时间轴</p><ul><li>中间一根轴，每个月一个，分页</li><li>其中一侧是日期</li><li>另一侧是不显示封面的**[文章格子]**，点击可查看对应文章</li></ul><h4 id="六、标签页面"><a href="#六、标签页面" class="headerlink" title="六、标签页面"></a>六、标签页面</h4><p>显示所有标签和每个标签下对应的文章数量，点击可跳转</p><h4 id="七、留言页面"><a href="#七、留言页面" class="headerlink" title="七、留言页面"></a>七、留言页面</h4><p>就是一篇叫做“留言”的文章详情页面，不显示显示上一篇和下一篇而已</p><h4 id="八、友链页面"><a href="#八、友链页面" class="headerlink" title="八、友链页面"></a>八、友链页面</h4><p>差不多是一篇叫做“友链”的文章详情页面，不显示显示上一篇和下一篇而已</p><p>额外显示友链信息，每个友链显示头像、名称、介绍，点击可跳转友链链接</p><h4 id="九、相册页面"><a href="#九、相册页面" class="headerlink" title="九、相册页面"></a>九、相册页面</h4><ul><li><p>点中相册导航时显示相册的二级菜单，再次点击跳转</p></li><li><p>显示该相册内的所有照片，点击看大图</p></li></ul><h4 id="十、文章详情页面"><a href="#十、文章详情页面" class="headerlink" title="十、文章详情页面"></a>十、文章详情页面</h4><ul><li>左侧<ul><li>左上角显示 分类、标签、标题</li><li>左上角接下来显示作者头像、昵称、发布时间、字数统计、预计阅读时间</li><li>以MarkDown形式显示博客内容</li><li>下面显示上一篇和下一篇**[文章 格子]**</li><li><strong>[评论区]</strong></li></ul></li><li>右侧<ul><li><strong>[博客信息介绍 格子]</strong></li><li>文章的Md标题目录</li><li>三个按钮，返回上级、返回顶部、发送66</li></ul></li></ul><h4 id="十一、说说详情页面"><a href="#十一、说说详情页面" class="headerlink" title="十一、说说详情页面"></a>十一、说说详情页面</h4><ul><li>左侧<ul><li><strong>[说说格子]</strong></li><li><strong>[评论区]</strong></li></ul></li><li>右侧<ul><li><strong>[博客信息介绍 格子]</strong></li></ul></li></ul><h4 id="十二、搜索页面"><a href="#十二、搜索页面" class="headerlink" title="十二、搜索页面"></a>十二、搜索页面</h4><ul><li>一个输入框，输入内容后右侧有清空按钮</li><li>未输入内容时下面显示最近搜索结果</li><li>输入内容时实时搜索并显示搜索结果</li><li>鼠标点击搜索结果跳转到对应的**[文章详情页面]**</li><li>被选中的搜索结果外侧高亮标识</li><li>Enter跳转到选中结果的**[文章详情页面]**</li><li>上下键移动选中</li><li>Esc或鼠标点击对话框外侧关闭搜索对话框</li><li>下面显示提示信息和使用的搜索引擎</li></ul><h4 id="十三、404页面"><a href="#十三、404页面" class="headerlink" title="十三、404页面"></a>十三、404页面</h4><h3 id="前端组件"><a href="#前端组件" class="headerlink" title="前端组件"></a>前端组件</h3><h4 id="一、文章-格子"><a href="#一、文章-格子" class="headerlink" title="一、文章 格子"></a>一、文章 格子</h4><ul><li>标题</li><li>部分内容</li><li>点击跳转到文章详情</li><li>显示推荐或置顶属性信息</li></ul><h4 id="二、博客信息介绍-格子"><a href="#二、博客信息介绍-格子" class="headerlink" title="二、博客信息介绍 格子"></a>二、博客信息介绍 格子</h4><ul><li>作者头像</li><li>作者昵称</li><li>个人简介</li><li>个人其他网站链接（如GitHub、Gitee）</li><li>博客信息统计（文章、说说、分类、标签的数量）</li></ul><h4 id="三、最近评论-格子"><a href="#三、最近评论-格子" class="headerlink" title="三、最近评论 格子"></a>三、最近评论 格子</h4><p>显示几条最近的评论</p><ul><li>评论人昵称</li><li>评论人头像</li><li>评论时间</li><li>评论内容</li></ul><h4 id="四、标签目录-格子"><a href="#四、标签目录-格子" class="headerlink" title="四、标签目录 格子"></a>四、标签目录 格子</h4><ul><li>显示所有的标签，点击可跳转</li><li>查看更多按钮，跳转到标签页面</li></ul><h4 id="五、公告-格子"><a href="#五、公告-格子" class="headerlink" title="五、公告 格子"></a>五、公告 格子</h4><p>显示公告</p><h4 id="六、网站信息-格子"><a href="#六、网站信息-格子" class="headerlink" title="六、网站信息 格子"></a>六、网站信息 格子</h4><p>显示网站信息</p><ul><li>运行时间</li><li>总访问量</li></ul><h4 id="七、评论区"><a href="#七、评论区" class="headerlink" title="七、评论区"></a>七、评论区</h4><ul><li>输入框</li><li>评论按钮</li><li>显示所有评论，回复的评论向内缩进</li><li>每条评论显示评论人昵称、时间、内容和回复按钮，点击后显示回复框</li><li>评论成功右上角弹窗</li></ul><h4 id="八、说说格子"><a href="#八、说说格子" class="headerlink" title="八、说说格子"></a>八、说说格子</h4><ul><li>左上角显示 说说创建人昵称、时间、评论数</li><li>接下来纯文本形式显示全部文字内容</li><li>显示图片缩略，点击看大图</li></ul><h3 id="管理页面"><a href="#管理页面" class="headerlink" title="管理页面"></a>管理页面</h3><h4 id="一、登录页面"><a href="#一、登录页面" class="headerlink" title="一、登录页面"></a>一、登录页面</h4><p>显示账号密码框，要求登录</p><h4 id="二、页面形式"><a href="#二、页面形式" class="headerlink" title="二、页面形式"></a>二、页面形式</h4><ol><li>左侧一个Sider导航栏，导航栏内容和跳转链接来自后端传入</li><li>上面一个Header<ul><li>左侧固定显示侧边栏收起按钮、可点击的页面路径</li><li>右侧固定显示全屏按钮和个人头像，点击头像时二次选择用户中心或登出选项</li><li>下面是一个打开过的页面标签栏，点击可跳转，有关闭按钮，右侧有全部关闭按钮</li></ul></li><li>根据选择的导航显示页面内容</li></ol>]]></content>
       
       
       <categories>
           
-          <category> 打黑工 </category>
+          <category> 工程 </category>
           
       </categories>
       
@@ -104,14 +173,14 @@
       
       <categories>
           
-          <category> 打黑工 </category>
+          <category> 工程 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Mogu Blog </tag>
+            <tag> Blog </tag>
             
         </tags>
       
@@ -129,16 +198,14 @@
       
       <categories>
           
-          <category> 打黑工 </category>
+          <category> 工程 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 前端 </tag>
-            
-            <tag> 组件库 </tag>
+            <tag> 前端组件库 </tag>
             
         </tags>
       
